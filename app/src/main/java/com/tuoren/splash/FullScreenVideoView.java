@@ -21,4 +21,13 @@ public class FullScreenVideoView extends VideoView {
     public FullScreenVideoView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        //宽
+        int width = getDefaultSize(0, widthMeasureSpec);
+        //高
+        int height = getDefaultSize(0, heightMeasureSpec);
+        setMeasuredDimension(width, height);
+    }
 }
