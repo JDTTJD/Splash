@@ -13,6 +13,7 @@ public class FullScreenVideoView extends VideoView {
     public FullScreenVideoView(Context context) {
         super(context);
     }
+
     //主要用于xml文件中
     public FullScreenVideoView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -26,8 +27,10 @@ public class FullScreenVideoView extends VideoView {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         //宽
         int width = getDefaultSize(0, widthMeasureSpec);
+
         //高
         int height = getDefaultSize(0, heightMeasureSpec);
+
         setMeasuredDimension(width, height);
     }
 }

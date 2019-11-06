@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Splash</string>
+    <string name="str_main_shanghai">上海</string>
+    <string name="str_main_hangzhou">杭州</string>
+    <string name="tiaoguo">跳过</string>
 </resources>
