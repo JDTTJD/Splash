@@ -48,6 +48,27 @@
 
         </RadioGroup>
 
+        <RadioGroup
+            android:id="@+id/rg_main_bottom"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RadioButton
+                android:id="@+id/rb_main_beijing"
+                android:text="@string/str_main_beijing"
+                android:drawableTop="@drawable/selector_main_top_tab_beijing"
+                style="@style/main_tab_rb_style" />
+
+            <RadioButton
+                android:id="@+id/rb_main_shenzhen"
+                android:text="@string/str_main_shenzhen"
+                android:drawableTop="@drawable/selector_main_top_tab_shenzhen"
+                style="@style/main_tab_rb_style" />
+
+        </RadioGroup>
+
     </FrameLayout>
 
 </RelativeLayout>

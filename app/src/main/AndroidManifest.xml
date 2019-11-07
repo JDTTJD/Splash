@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/icon_min"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity"
+        <activity
+            android:name=".KangActivity"
+            android:label="@string/title_activity_kang"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".SplashActivity"
             android:theme="@style/FullScree">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
