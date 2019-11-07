@@ -2,13 +2,15 @@ package com.tuoren.splash;
 
 import android.os.Bundle;
 
+import com.tuoren.splash.mvp.view.LifeCircleMvpActivity;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Create by JDT on 2019/11/6.
  */
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends LifeCircleMvpActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
