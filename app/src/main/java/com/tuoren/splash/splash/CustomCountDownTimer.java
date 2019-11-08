@@ -1,4 +1,4 @@
-package com.tuoren.splash;
+package com.tuoren.splash.splash;
 
 
 import android.os.Handler;

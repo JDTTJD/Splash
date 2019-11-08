@@ -1,4 +1,4 @@
-package com.tuoren.splash;
+package com.tuoren.splash.base;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;

@@ -1,11 +1,9 @@
-package com.tuoren.splash;
+package com.tuoren.splash.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.tuoren.splash.mvp.IMvpView;
-import com.tuoren.splash.mvp.ISpalshActivityContract;
 import com.tuoren.splash.mvp.base.BaseMvpPresenter;
 
 /**
@@ -64,6 +62,6 @@ public class SplashTimerPresent extends BaseMvpPresenter<ISpalshActivityContract
 
     @Override
     protected ISpalshActivityContract.Iview getEmptyView() {
-        return null;
+        return ISpalshActivityContract.emptyView;
     }
 }

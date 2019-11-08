@@ -1,13 +1,15 @@
-package com.tuoren.splash;
+package com.tuoren.splash.splash;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.tuoren.splash.mvp.ISpalshActivityContract;
+import com.tuoren.splash.base.BaseActivity;
+import com.tuoren.splash.main.MainActivity;
+import com.tuoren.splash.R;
+import com.tuoren.splash.base.ViewInject;
 
 import java.io.File;
 
@@ -27,8 +29,7 @@ public class SplashActivity extends BaseActivity implements ISpalshActivityContr
     private ISpalshActivityContract.IPresenter timerPresenter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void afterBindView() {
         initTimerPresenter();
         initListener();
         initVideo();
@@ -40,7 +41,7 @@ public class SplashActivity extends BaseActivity implements ISpalshActivityContr
     }
 
     private void initVideo() {
-        vvPlay.setVideoURI(Uri.parse("android.resource://" + getPackageName() + File.separator + R.raw.splash));
+        vvPlay.setVideoURI(Uri.parse("android.resource://" + getPackageName() + File.separator + R.raw.loading_screen));
         vvPlay.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
