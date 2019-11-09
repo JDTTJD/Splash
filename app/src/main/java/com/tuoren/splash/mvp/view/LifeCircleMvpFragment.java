@@ -2,15 +2,13 @@ package com.tuoren.splash.mvp.view;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import com.tuoren.splash.mvp.IMvpView;
 import com.tuoren.splash.mvp.MvpController;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+
 
 /**
  * Create by JDT on 2019/11/7.

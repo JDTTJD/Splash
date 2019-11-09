@@ -1,10 +1,10 @@
 package com.tuoren.splash.main;
 
 import com.tuoren.splash.R;
-import com.tuoren.splash.main.shanghai.BeiJingFragment;
-import com.tuoren.splash.main.shanghai.HangZhouFragment;
+import com.tuoren.splash.main.beijing.BeiJingFragment;
+import com.tuoren.splash.main.hangzhou.HangZhouFragment;
 import com.tuoren.splash.main.shanghai.ShangHaiFragment;
-import com.tuoren.splash.main.shanghai.ShenZhenFragment;
+import com.tuoren.splash.main.shenzhen.ShenZhenFragment;
 import com.tuoren.splash.mvp.base.BaseMvpPresenter;
 
 import androidx.fragment.app.Fragment;
@@ -19,6 +19,8 @@ public class MainActivityPresenter extends BaseMvpPresenter<IMainActivityContrac
 
     private Fragment [] mFragments = new Fragment[4];
     private int mCurrentCheckedId;
+    private int mTopPosition;
+    private int mBottomPosition;
 
 
     public MainActivityPresenter(IMainActivityContract.Iview view) {
@@ -31,13 +33,34 @@ public class MainActivityPresenter extends BaseMvpPresenter<IMainActivityContrac
     }
 
     @Override
+    public int getTopPosition() {
+        return mTopPosition;
+    }
+
+    @Override
+    public int getBottomPosition() {
+        return mBottomPosition;
+    }
+
+    @Override
     public void initHomeFragment() {
         mCurrentFragmentIndex = 0;
         replaceFragment(mCurrentFragmentIndex);
     }
 
+
+    @Override
+    public int getCurrentCheckedIndex() {
+        return mCurrentFragmentIndex;
+    }
+
+    @Override
+    public int getCurrentCheckedId() {
+        return mCurrentCheckedId;
+    }
+
     //切换Fragment的方法
-    private void replaceFragment(int mCurrentFragmentIndex) {
+    public void replaceFragment(int mCurrentFragmentIndex) {
         for (int i = 0; i < mFragments.length; i++) {
             if (mCurrentFragmentIndex != i) {
                 if (mFragments[i] != null) {
@@ -64,15 +87,19 @@ public class MainActivityPresenter extends BaseMvpPresenter<IMainActivityContrac
         switch (mCurrentFragmentIndex) {
             case 0:
                 mCurrentCheckedId = R.id.rb_main_shanghai;
+                mTopPosition = 0;
                 break;
             case 1:
                 mCurrentCheckedId = R.id.rb_main_hangzhou;
+                mTopPosition = 1;
                 break;
             case 2:
                 mCurrentCheckedId = R.id.rb_main_beijing;
+                mBottomPosition = 2;
                 break;
             case 3:
                 mCurrentCheckedId = R.id.rb_main_shenzhen;
+                mBottomPosition = 3;
                 break;
         }
 
@@ -109,9 +136,9 @@ public class MainActivityPresenter extends BaseMvpPresenter<IMainActivityContrac
     }
 
     //隐藏Fragment
-    private void hideFragment(Fragment fragment) {
-        if (fragment != null && fragment.isVisible()) {
-            getView().hideFragment(fragment);
+    private void hideFragment(Fragment mfragment) {
+        if (mfragment != null && mfragment.isVisible()) {
+            getView().hideFragment(mfragment);
         }
     }
 }

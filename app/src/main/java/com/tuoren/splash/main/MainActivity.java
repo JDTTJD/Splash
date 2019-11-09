@@ -11,6 +11,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.tuoren.splash.R;
 import com.tuoren.splash.base.BaseActivity;
 import com.tuoren.splash.base.ViewInject;
+import com.tuoren.splash.main.tools.MainCostantTool;
 
 import androidx.fragment.app.Fragment;
 import butterknife.BindView;
@@ -46,7 +47,55 @@ public class MainActivity extends BaseActivity implements IMainActivityContract.
     public void afterBindView() {
         initHomeFragment();
         changeAnima(rgMainBottom, rgMainTop);
+        initCheckListener();
     }
+
+    private void initCheckListener() {
+        //rbMainShanghai.playAnimation();
+
+
+        rbMainShanghai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (rbMainShanghai.getId() == mPresenter.getCurrentCheckedId()) {
+                    return;
+                }
+                mPresenter.replaceFragment(MainCostantTool.SHANGHAI);
+               // rbMainShanghai.playAnimation();
+                //rbMainHangzhou.reverseAnimation();
+            }
+        });
+
+        rbMainHangzhou.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (rbMainHangzhou.getId() == mPresenter.getCurrentCheckedId()) {
+                    return;
+                }
+                mPresenter.replaceFragment(MainCostantTool.HANGZHOU);
+                //rbMainHangzhou.playAnimation();
+                //rbMainShanghai.reverseAnimation();
+            }
+        });
+
+        rgMainBottom.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == mPresenter.getCurrentCheckedId()) {
+                    return;
+                }
+                switch (checkedId) {
+                    case R.id.rb_main_beijing:
+                        mPresenter.replaceFragment(MainCostantTool.BEIJING);
+                        break;
+                    case R.id.rb_main_shenzhen:
+                        mPresenter.replaceFragment(MainCostantTool.SHENZHEN);
+                        break;
+                }
+            }
+        });
+    }
+
 
     // 初始化 Fragment
     private void initHomeFragment() {
@@ -60,10 +109,36 @@ public class MainActivity extends BaseActivity implements IMainActivityContract.
                 isChangeTopOrBottom = !isChangeTopOrBottom;
                 if (isChangeTopOrBottom) {
                     changeAnima(rgMainTop,rgMainBottom);
+                    handleTopPosition();
                 } else {
                     changeAnima(rgMainBottom, rgMainTop);
+                    handleBottomPosition();
                 }
                 break;
+        }
+    }
+
+
+
+    //北京 深圳
+    private void handleBottomPosition() {
+        if (mPresenter.getTopPosition() != 1) {
+            mPresenter.replaceFragment(0);
+            rbMainShanghai.setChecked(true);
+        } else {
+            mPresenter.replaceFragment(1);
+            rbMainHangzhou.setChecked(true);
+        }
+    }
+
+    //上海 杭州
+    private void handleTopPosition() {
+        if (mPresenter.getBottomPosition() != 3) {
+            mPresenter.replaceFragment(2);
+            rbMainBeijing.setChecked(true);
+        } else {
+            mPresenter.replaceFragment(3);
+            rbMainShenzhen.setChecked(true);
         }
     }
 
