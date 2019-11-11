@@ -131,6 +131,7 @@ public class MainActivity extends BaseActivity implements IMainActivityContract.
         }
     }
 
+
     //上海 杭州
     private void handleTopPosition() {
         if (mPresenter.getBottomPosition() != MainCostantTool.SHENZHEN) {
