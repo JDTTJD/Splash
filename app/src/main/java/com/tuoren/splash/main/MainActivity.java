@@ -122,22 +122,22 @@ public class MainActivity extends BaseActivity implements IMainActivityContract.
 
     //北京 深圳
     private void handleBottomPosition() {
-        if (mPresenter.getTopPosition() != 1) {
-            mPresenter.replaceFragment(0);
+        if (mPresenter.getTopPosition() != MainCostantTool.HANGZHOU) {
+            mPresenter.replaceFragment(MainCostantTool.SHANGHAI);
             rbMainShanghai.setChecked(true);
         } else {
-            mPresenter.replaceFragment(1);
+            mPresenter.replaceFragment(MainCostantTool.HANGZHOU);
             rbMainHangzhou.setChecked(true);
         }
     }
 
     //上海 杭州
     private void handleTopPosition() {
-        if (mPresenter.getBottomPosition() != 3) {
-            mPresenter.replaceFragment(2);
+        if (mPresenter.getBottomPosition() != MainCostantTool.SHENZHEN) {
+            mPresenter.replaceFragment(MainCostantTool.BEIJING);
             rbMainBeijing.setChecked(true);
         } else {
-            mPresenter.replaceFragment(3);
+            mPresenter.replaceFragment(MainCostantTool.SHENZHEN);
             rbMainShenzhen.setChecked(true);
         }
     }
