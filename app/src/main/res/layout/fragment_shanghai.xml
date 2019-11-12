@@ -39,147 +39,164 @@
                     android:gravity="center"
                     android:text="上海欢迎您"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp" />
-
+                    android:layout_height="match_parent" />
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
-        <androidx.core.widget.NestedScrollView
+        <TextView
+            android:textColor="@color/colorWhite"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="我是可以停留的"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:background="@color/color_ADADAD"
+            android:id="@+id/shanghai_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:textColor="@color/colorWhite"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="@string/str_main_shanghai"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
+        </androidx.recyclerview.widget.RecyclerView>
 
-                <TextView
-                    android:textColor="@color/colorWhite"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="@string/str_main_shanghai"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
+<!--        <androidx.core.widget.NestedScrollView-->
+<!--            app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+<!--            android:background="@color/color_ADADAD"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
+<!--            -->
+<!--            <LinearLayout-->
+<!--                android:orientation="vertical"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent">-->
+<!--                <TextView-->
+<!--                    android:textColor="@color/colorWhite"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="@string/str_main_shanghai"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="50dp" />-->
 
-                <TextView
-                    android:textColor="@color/colorWhite"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="@string/str_main_shanghai"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
+<!--                <TextView-->
+<!--                    android:textColor="@color/colorWhite"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="@string/str_main_shanghai"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="50dp" />-->
 
-                <TextView
-                    android:textColor="@color/colorWhite"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="@string/str_main_shanghai"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
+<!--                <TextView-->
+<!--                    android:textColor="@color/colorWhite"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="@string/str_main_shanghai"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="50dp" />-->
 
-                <TextView
-                    android:textColor="@color/colorWhite"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="@string/str_main_shanghai"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
+<!--                <TextView-->
+<!--                    android:textColor="@color/colorWhite"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="@string/str_main_shanghai"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="50dp" />-->
 
-                <TextView
-                    android:textColor="@color/colorWhite"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="@string/str_main_shanghai"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
+<!--                <TextView-->
+<!--                    android:textColor="@color/colorWhite"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="@string/str_main_shanghai"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="50dp" />-->
 
-                <TextView
-                    android:textColor="@color/colorWhite"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="@string/str_main_shanghai"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
+<!--                <TextView-->
+<!--                    android:textColor="@color/colorWhite"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="@string/str_main_shanghai"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="50dp" />-->
 
-                <TextView
-                    android:textColor="@color/colorWhite"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="@string/str_main_shanghai"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
+<!--                <TextView-->
+<!--                    android:textColor="@color/colorWhite"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="@string/str_main_shanghai"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="50dp" />-->
 
-                <TextView
-                    android:textColor="@color/colorWhite"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="@string/str_main_shanghai"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
+<!--                <TextView-->
+<!--                    android:textColor="@color/colorWhite"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="@string/str_main_shanghai"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="50dp" />-->
 
-                <TextView
-                    android:textColor="@color/colorWhite"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="@string/str_main_shanghai"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
-                <TextView
-                    android:textColor="@color/colorWhite"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="@string/str_main_shanghai"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
+<!--                <TextView-->
+<!--                    android:textColor="@color/colorWhite"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="@string/str_main_shanghai"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="50dp" />-->
 
-                <TextView
-                    android:textColor="@color/colorWhite"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="@string/str_main_shanghai"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
+<!--                <TextView-->
+<!--                    android:textColor="@color/colorWhite"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="@string/str_main_shanghai"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="50dp" />-->
+<!--                <TextView-->
+<!--                    android:textColor="@color/colorWhite"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="@string/str_main_shanghai"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="50dp" />-->
 
-                <TextView
-                    android:textColor="@color/colorWhite"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="@string/str_main_shanghai"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
+<!--                <TextView-->
+<!--                    android:textColor="@color/colorWhite"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="@string/str_main_shanghai"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="50dp" />-->
 
-                <TextView
-                    android:textColor="@color/colorWhite"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="@string/str_main_shanghai"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
+<!--                <TextView-->
+<!--                    android:textColor="@color/colorWhite"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="@string/str_main_shanghai"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="50dp" />-->
 
-                <TextView
-                    android:textColor="@color/colorWhite"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="shanghai"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
+<!--                <TextView-->
+<!--                    android:textColor="@color/colorWhite"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="@string/str_main_shanghai"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="50dp" />-->
+
+<!--                <TextView-->
+<!--                    android:textColor="@color/colorWhite"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="shanghai"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="50dp" />-->
 
 
 
-            </LinearLayout>
+<!--            </LinearLayout>-->
 
-        </androidx.core.widget.NestedScrollView>
+<!--        </androidx.core.widget.NestedScrollView>-->
 
-    </com.google.android.material.appbar.AppBarLayout>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

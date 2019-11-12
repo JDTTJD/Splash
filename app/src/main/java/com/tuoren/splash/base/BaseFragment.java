@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.tuoren.splash.mvp.view.LifeCircleMvpActivity;
 import com.tuoren.splash.mvp.view.LifeCircleMvpFragment;
 
 import androidx.annotation.NonNull;
@@ -18,7 +17,7 @@ import butterknife.ButterKnife;
  */
 public abstract class BaseFragment extends LifeCircleMvpFragment {
 
-    private Context mContext;
+    protected Context mContext;
 
     @Override
     public void onAttach(Context context) {
