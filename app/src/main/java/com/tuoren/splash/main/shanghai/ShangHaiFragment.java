@@ -1,5 +1,6 @@
 package com.tuoren.splash.main.shanghai;
 
+import android.content.Context;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -44,7 +45,7 @@ public class ShangHaiFragment extends BaseFragment {
         for (int i = 0; i < 15; i++) {
             data.add("英雄联盟S10上海市欢迎您");
         }
-        shanghaiRecyclerview.setAdapter(new ShanghaiAdapter(data));
+        shanghaiRecyclerview.setAdapter(new ShanghaiAdapter(,data));
     }
 
     private void initListener() {
