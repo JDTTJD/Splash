@@ -1,6 +1,5 @@
 package com.tuoren.splash.main.shanghai;
 
-import android.content.Context;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -11,8 +10,7 @@ import com.tuoren.splash.R;
 import com.tuoren.splash.base.BaseFragment;
 import com.tuoren.splash.base.ViewInject;
 import com.tuoren.splash.main.shanghai.adapter.ShanghaiAdapter;
-
-import java.util.ArrayList;
+import com.tuoren.splash.main.shanghai.dto.ShanghaiDataManager;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -41,11 +39,7 @@ public class ShangHaiFragment extends BaseFragment {
 
     private void initRecyclerview() {
         shanghaiRecyclerview.setLayoutManager(new LinearLayoutManager(mContext));
-        ArrayList<String> data = new ArrayList<>();
-        for (int i = 0; i < 15; i++) {
-            data.add("英雄联盟S10上海市欢迎您");
-        }
-        shanghaiRecyclerview.setAdapter(new ShanghaiAdapter(,data));
+        shanghaiRecyclerview.setAdapter(new ShanghaiAdapter(mContext, ShanghaiDataManager.getData(),false));
     }
 
     private void initListener() {
