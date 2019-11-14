@@ -44,4 +44,6 @@ dependencies {
     // ButterKnife 黄油刀 安卓大神的个人github
     implementation 'com.jakewharton:butterknife:10.0.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+    //网络
+    implementation("com.squareup.okhttp3:okhttp:4.2.2")
 }
