@@ -21,6 +21,8 @@ import androidx.core.util.Pair;
 import butterknife.BindView;
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -37,16 +39,53 @@ public class ShanghaiDetailActivity extends BaseActivity {
     @Override
     public void afterBindView() {
         initAnima();
-        initGetData();
+        initGetNetData();
+//        initPostNetData();
+    }
+
+    private void initPostNetData() {
+        OkHttpClient client = new OkHttpClient();
+        FormBody.Builder builder = new FormBody.Builder();
+        builder.add("key","579f1cbcb903065d6c7f89103632f229");
+        Request request = new Request.Builder()
+                .url("http://apis.juhe.cn/lottery/types")
+                .post(builder.build())
+                .build();//建造者设计模式
+        Call call = client.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                Log.e("initGetData", "onFailure + " + e);
+            }
+
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                Log.e("initGetData", "onResponse + " + response.body().string());
+            }
+        });
     }
 
     /**
      * 发送网络请求数据
      */
-    private void initGetData() {
+    private void initGetNetData() {
+        //1、可以隔离
         OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder().url("http://www.baidu.com").get().build();//建造者设计模式
+        //2、构建请求 1) url 2) 参数
+        HttpUrl.Builder builder = HttpUrl.parse("http://v.juhe.cn/joke/content/list.php").newBuilder();
+        builder.addQueryParameter("sort","desc");
+        builder.addQueryParameter("page","1");
+        builder.addQueryParameter("pagesize","2");
+        builder.addQueryParameter("time","" + System.currentTimeMillis()/1000);
+        builder.addQueryParameter("key","4fd5a16cadfb5937c361ecf167d9c756");
+        //3、构建Request
+        Request request = new Request.Builder()
+                .url(builder.build())
+                .get()
+                .build();//建造者设计模式
+        //4、构建Call
         Call call = client.newCall(request);
+        //5、执行网络请求
         call.enqueue(new Callback() {
             @Override
             public void onFailure(@NotNull Call call, @NotNull IOException e) {

@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    compileSdkVersion Integer.valueOf(compile_sdk_version)
+    buildToolsVersion build_tools_version
     defaultConfig {
         applicationId "com.tuoren.splash"
-        minSdkVersion 15
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion Integer.valueOf(min_sdk_version)
+        targetSdkVersion Integer.valueOf(target_sdk_version)
+        versionCode Integer.valueOf(version_code)
+        versionName version_name
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         //指定jdk版本
         compileOptions {
@@ -46,4 +46,7 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
     //网络
     implementation("com.squareup.okhttp3:okhttp:4.2.2")
+    //module的依赖引入
+    implementation project(path: ':mvp')
+    implementation project(path: ':http')
 }
