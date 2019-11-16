@@ -1,6 +1,6 @@
 package com.tuoren.splash.main.shanghai.module;
 
-import com.tuoren.http.IRequest;
+import com.tuoren.http.request.IRequest;
 import com.tuoren.http.annotation.RequestMethod;
 import com.tuoren.splash.base.JHRequest;
 

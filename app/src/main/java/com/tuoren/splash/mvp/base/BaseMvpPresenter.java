@@ -76,4 +76,5 @@ public abstract class BaseMvpPresenter<T extends IMvpView> extends LifeCircleMvp
     public void onDestroy() {
 
     }
+
 }

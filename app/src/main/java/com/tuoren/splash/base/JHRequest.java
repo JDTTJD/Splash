@@ -1,6 +1,6 @@
 package com.tuoren.splash.base;
 
-import com.tuoren.http.IRequest;
+import com.tuoren.http.request.IRequest;
 import com.tuoren.http.annotation.RequestMethod;
 import com.tuoren.http.request.LfRequest;
 
@@ -11,6 +11,7 @@ public class JHRequest extends LfRequest{
     public static IRequest sendHttp(String path, @RequestMethod int requestMethod) {
         JHRequest request = new JHRequest();
         request.host = HostManager.jhHost;
+        request.path = path;
         request.requestMethod = requestMethod;
         return request;
     }

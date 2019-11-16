@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import com.tuoren.splash.R;
 import com.tuoren.splash.base.BaseActivity;
 import com.tuoren.splash.base.ViewInject;
+import com.tuoren.splash.main.shanghai.If.IShanghaiDetailContract;
+import com.tuoren.splash.main.shanghai.presenter.ShanghaiDetailPresenter;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -22,7 +24,6 @@ import butterknife.BindView;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
-import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -31,7 +32,9 @@ import okhttp3.Response;
  * Create by JDT on 2019/11/14.
  */
 @ViewInject(mainlayoutid = R.layout.activity_shanghai_detail)
-public class ShanghaiDetailActivity extends BaseActivity {
+public class ShanghaiDetailActivity extends BaseActivity implements IShanghaiDetailContract.Iview {
+    IShanghaiDetailContract.IPresenter mPresenter = new ShanghaiDetailPresenter(this);
+
     public static String mActivityOptionsCompat = "ShanghaiDetailActivity";
     @BindView(R.id.iv_shanghai_detail)
     ImageView ivShanghaiDetail;
@@ -69,7 +72,16 @@ public class ShanghaiDetailActivity extends BaseActivity {
      * 发送网络请求数据
      */
     private void initGetNetData() {
-        //1、可以隔离
+        mPresenter.getNetData();
+
+//        GetXiaoHuaTask task = new GetXiaoHuaTask();
+//        task.execute("desc", "1", "2");
+//        Object desc = new ShangHaiDetailHttpTask().getXiaoHuaList("desc", "1", "2");
+//        if (desc instanceof Response) {
+//            Response response = (Response) desc;
+//            Log.e("initGetNetData",response.body().toString());
+//        }
+        /*//1、可以隔离
         OkHttpClient client = new OkHttpClient();
         //2、构建请求 1) url 2) 参数
         HttpUrl.Builder builder = HttpUrl.parse("http://v.juhe.cn/joke/content/list.php").newBuilder();
@@ -96,7 +108,7 @@ public class ShanghaiDetailActivity extends BaseActivity {
             public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
                 Log.e("initGetData", "onResponse + " + response.body().string());
             }
-        });
+        });*/
     }
 
     private void initAnima() {
