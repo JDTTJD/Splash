@@ -1,8 +1,8 @@
 package com.tuoren.splash.splash;
 
-import com.tuoren.splash.mvp.ILifeCircle;
-import com.tuoren.splash.mvp.IMvpView;
-import com.tuoren.splash.mvp.MvpController;
+import com.tuoren.mvp.mvp.ILifeCircle;
+import com.tuoren.mvp.mvp.IMvpView;
+import com.tuoren.mvp.mvp.MvpController;
 
 /**
  * Create by JDT on 2019/11/7.

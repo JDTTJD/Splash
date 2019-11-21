@@ -1,7 +1,7 @@
 package com.tuoren.splash.base;
 
-import com.tuoren.splash.mvp.IMvpView;
-import com.tuoren.splash.mvp.base.BaseMvpPresenter;
+import com.tuoren.mvp.mvp.IMvpView;
+import com.tuoren.mvp.mvp.base.BaseMvpPresenter;
 import com.tuoren.task.LfTask;
 import com.tuoren.task.TaskHelper;
 

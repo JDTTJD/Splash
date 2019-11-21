@@ -47,7 +47,7 @@ dependencies {
     //网络
     implementation("com.squareup.okhttp3:okhttp:4.2.2")
     //module的依赖引入
-    //implementation project(path: ':mvp')
+    implementation project(path: ':mvp')
     implementation project(path: ':http')
     implementation project(path: ':task')
 }

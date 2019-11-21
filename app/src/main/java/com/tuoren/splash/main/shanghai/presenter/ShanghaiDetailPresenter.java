@@ -1,5 +1,8 @@
 package com.tuoren.splash.main.shanghai.presenter;
 
+import android.util.Log;
+
+import com.tuoren.http.result.IResult;
 import com.tuoren.splash.base.BasePresenter;
 import com.tuoren.splash.main.shanghai.If.IShanghaiDetailContract;
 import com.tuoren.splash.main.shanghai.module.ShangHaiDetailHttpTask;
@@ -22,24 +25,27 @@ public class ShanghaiDetailPresenter extends BasePresenter<IShanghaiDetailContra
 
     @Override
     public void getNetData() {
-        submitTask(new LfTask() {
-            //一定要回调到主线程
-            @Override
-            public void onSuccess(Object o) {
-                //获取网络结果
-            }
+        //1、数据的结果解析怎么来做
+        //2、相同任务的去重工作
+            submitTask(new LfTask() {
+                //一定要回调到主线程
+                @Override
+                public void onSuccess(Object o) {
+                    //获取网络结果
+                    Log.e("getNetData", o.toString());
+                }
 
-            @Override
-            public void onException(Throwable throwable) {
+                @Override
+                public void onException(Throwable throwable) {
+                    Log.e("getNetData", throwable.toString());
+                }
 
-            }
-
-            //运行子线程
-            @Override
-            public Object onBackground() {
-                return new ShangHaiDetailHttpTask().getXiaoHuaList("desc", "1", "2");
-            }
-        });
+                //运行子线程
+                @Override
+                public Object onBackground() {
+                    IResult desc = new ShangHaiDetailHttpTask().getXiaoHuaList("desc", "1", "2");
+                    return desc;
+                }
+            });
     }
-
 }

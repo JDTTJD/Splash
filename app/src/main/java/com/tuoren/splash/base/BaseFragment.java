@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.tuoren.splash.mvp.view.LifeCircleMvpFragment;
+import com.tuoren.mvp.mvp.view.LifeCircleMvpFragment;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

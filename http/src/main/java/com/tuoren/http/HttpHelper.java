@@ -3,6 +3,7 @@ package com.tuoren.http;
 import com.tuoren.http.okhttp.OkHttpScheduler;
 import com.tuoren.http.request.IRequest;
 import com.tuoren.http.request.call.ICall;
+import com.tuoren.http.result.IResult;
 
 import java.util.Map;
 
@@ -25,10 +26,9 @@ public class HttpHelper {
     }
 
     // TODO: 2019/11/15  待写真正的网络请求
-    protected static Object execute(IRequest request, Map<String, Object> params) {
+    protected static <T> IResult<T> execute(IRequest request, Map<String, Object> params) {
         request.setParams(params);
         ICall call = getHttpScheduler().newCall(request);
-        Object object = getHttpScheduler().execute(call);
-        return object;
+        return getHttpScheduler().execute(call);
     }
 }

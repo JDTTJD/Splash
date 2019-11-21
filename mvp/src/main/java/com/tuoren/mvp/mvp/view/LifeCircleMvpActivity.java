@@ -3,8 +3,8 @@ package com.tuoren.mvp.mvp.view;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.tuoren.splash.mvp.IMvpView;
-import com.tuoren.splash.mvp.MvpController;
+import com.tuoren.mvp.mvp.IMvpView;
+import com.tuoren.mvp.mvp.MvpController;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;

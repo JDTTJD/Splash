@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.tuoren.splash.mvp.base.BaseMvpPresenter;
+import com.tuoren.mvp.mvp.base.BaseMvpPresenter;
 
 /**
  * Create by JDT on 2019/11/7.

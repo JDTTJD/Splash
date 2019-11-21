@@ -6,6 +6,8 @@ import android.os.Message;
 
 import com.tuoren.task.tools.ThreadUtil;
 
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.TimeUnit;
 
 import androidx.annotation.NonNull;
@@ -14,6 +16,8 @@ import androidx.annotation.NonNull;
  * Create by JDT on 2019/11/19.
  */
 public class TaskSchedule {
+
+    private final PriorityThreadPoolExecutor executor;
 
     interface ITaskScheduleType {
         int SUBMIT_TASK = 0;
@@ -41,8 +45,9 @@ public class TaskSchedule {
             }
         });
         //创建一个线程池
+        BlockingQueue<Runnable> poolQueue = new LinkedBlockingDeque<>();//无大小限制的队列
         this.executor = new PriorityThreadPoolExecutor(COREPOOLSIZE, MAXIMUMPOOLSIZE,KEEPALIVETIME,
-                TimeUnit.MINUTES, )
+                TimeUnit.MINUTES, poolQueue, new TaskThreadFactory());
     }
 
     private void doSubmitTask(AsyncTaskInstance taskInstance) {

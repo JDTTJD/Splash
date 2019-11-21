@@ -1,11 +1,11 @@
 package com.tuoren.splash.main;
 
+import com.tuoren.mvp.mvp.base.BaseMvpPresenter;
 import com.tuoren.splash.R;
 import com.tuoren.splash.main.beijing.BeiJingFragment;
 import com.tuoren.splash.main.hangzhou.HangZhouFragment;
 import com.tuoren.splash.main.shanghai.ShangHaiFragment;
 import com.tuoren.splash.main.shenzhen.ShenZhenFragment;
-import com.tuoren.splash.mvp.base.BaseMvpPresenter;
 
 import androidx.fragment.app.Fragment;
 

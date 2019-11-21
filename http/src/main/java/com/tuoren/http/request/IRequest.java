@@ -1,7 +1,9 @@
 package com.tuoren.http.request;
 
+import com.tuoren.http.parser.IParser;
 import com.tuoren.http.request.host.IHost;
 
+import java.lang.reflect.Type;
 import java.util.Map;
 
 /**
@@ -14,4 +16,6 @@ public interface IRequest {
     int getRequestMerhod();
     IHost getHost();
     String getPath();
+    IParser getParser();
+    Type getType();
 }

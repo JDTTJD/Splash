@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * Create by JDT on 2019/11/7.
  */
-public class MvpController implements ILifeCircle{
+public class MvpController implements ILifeCircle {
 
     //存放的是P层的实例
     private Set<ILifeCircle> lifeCircles = new HashSet<>();

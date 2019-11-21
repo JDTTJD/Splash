@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/iv_shanghai_detail"
+        android:id="@+id/tang_shanghai_detail"
         android:transitionName="ShanghaiDetailActivity"
         android:scaleType="centerCrop"
         android:src="@mipmap/shanghai"

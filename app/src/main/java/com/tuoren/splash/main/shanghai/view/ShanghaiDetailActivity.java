@@ -36,8 +36,9 @@ public class ShanghaiDetailActivity extends BaseActivity implements IShanghaiDet
     IShanghaiDetailContract.IPresenter mPresenter = new ShanghaiDetailPresenter(this);
 
     public static String mActivityOptionsCompat = "ShanghaiDetailActivity";
-    @BindView(R.id.iv_shanghai_detail)
+    @BindView(R.id.tang_shanghai_detail)
     ImageView ivShanghaiDetail;
+
 
     @Override
     public void afterBindView() {
@@ -72,7 +73,12 @@ public class ShanghaiDetailActivity extends BaseActivity implements IShanghaiDet
      * 发送网络请求数据
      */
     private void initGetNetData() {
-        mPresenter.getNetData();
+        ivShanghaiDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.getNetData();
+            }
+        });
 
 //        GetXiaoHuaTask task = new GetXiaoHuaTask();
 //        task.execute("desc", "1", "2");
@@ -131,4 +137,5 @@ public class ShanghaiDetailActivity extends BaseActivity implements IShanghaiDet
             ActivityCompat.startActivity(activity, intent, optionsCompat.toBundle());
         }
     }
+
 }

@@ -1,2 +1,2 @@
-include ':app', ':http', ':task'
+include ':app', ':http', ':task', ':mvp'
 rootProject.name='Splash'

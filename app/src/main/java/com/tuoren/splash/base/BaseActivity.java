@@ -2,8 +2,7 @@ package com.tuoren.splash.base;
 
 import android.os.Bundle;
 
-import com.tuoren.splash.base.ViewInject;
-import com.tuoren.splash.mvp.view.LifeCircleMvpActivity;
+import com.tuoren.mvp.mvp.view.LifeCircleMvpActivity;
 
 import androidx.annotation.Nullable;
 import butterknife.ButterKnife;

@@ -1,8 +1,8 @@
 package com.tuoren.splash.main;
 
-import com.tuoren.splash.mvp.ILifeCircle;
-import com.tuoren.splash.mvp.IMvpView;
-import com.tuoren.splash.mvp.MvpController;
+import com.tuoren.mvp.mvp.ILifeCircle;
+import com.tuoren.mvp.mvp.IMvpView;
+import com.tuoren.mvp.mvp.MvpController;
 
 import androidx.fragment.app.Fragment;
 
