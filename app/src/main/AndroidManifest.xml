@@ -4,6 +4,7 @@
     package="com.tuoren.splash">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
 
     <application
         android:allowBackup="true"
@@ -22,6 +23,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".main.MainActivity" />
+        <activity android:name=".main.KangActivity" />
+        <activity android:name=".base.BaseActivity" />
         <activity android:name=".main.shanghai.view.ShanghaiDetailActivity" />
     </application>
 </manifest>

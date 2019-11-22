@@ -42,19 +42,19 @@ public abstract class BaseFragment extends LifeCircleMvpFragment {
         } else {
             throw new RuntimeException("annotation = null");
         }
-
         return mView;
     }
 
     private View initFragmentView(LayoutInflater inflater,int mainlayoutid) {
-
-        return inflater.from(mContext).inflate(mainlayoutid, null);
+        //多了个.from(mContext)
+        //return inflater.from(mContext).inflate(mainlayoutid, null);
+        return inflater.inflate(mainlayoutid, null);
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+//    @Override
+//    public void onCreate(@Nullable Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//    }
 
     //模版方法设计模式
     public abstract void afterBindView();

@@ -29,15 +29,9 @@ public class DefaultResultParse implements IParser {
 
     @Override
     public IResult parseResponse(IRequest request, IResponse iResponse) {
-
         Type type = request.getType();
         String bodyStr = iResponse.getBodyStr();
-
         Object object = mGson.fromJson(bodyStr, type);
-        if (object == null) {
-            return Result.failed();
-        } else {
-            return Result.success(object);
-        }
+        return Result.success(object);
     }
 }

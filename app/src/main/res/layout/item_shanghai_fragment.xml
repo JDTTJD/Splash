@@ -13,15 +13,27 @@
             android:layout_width="50dp"
             android:layout_height="50dp" />
 
+<!--        <TextView-->
+<!--            android:maxLines="2"-->
+<!--            android:ellipsize="end"-->
+<!--            android:id="@+id/item_shanghai_tv"-->
+<!--            android:background="@color/color_ADADAD"-->
+<!--            android:textColor="@color/colorWhite"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:gravity="center"-->
+<!--            android:text="@string/str_main_shanghai"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="50dp" />-->
         <TextView
+            android:maxLines="2"
+            android:ellipsize="end"
             android:id="@+id/item_shanghai_tv"
             android:background="@color/color_ADADAD"
-            android:textColor="@color/colorWhite"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="@string/str_main_shanghai"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-
+            android:text=""
+            android:textColor="@color/colorWhite" />
 
 </LinearLayout>

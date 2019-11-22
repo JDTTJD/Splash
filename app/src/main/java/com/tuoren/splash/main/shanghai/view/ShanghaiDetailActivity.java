@@ -36,7 +36,7 @@ public class ShanghaiDetailActivity extends BaseActivity implements IShanghaiDet
     IShanghaiDetailContract.IPresenter mPresenter = new ShanghaiDetailPresenter(this);
 
     public static String mActivityOptionsCompat = "ShanghaiDetailActivity";
-    @BindView(R.id.tang_shanghai_detail)
+    @BindView(R.id.iv_shanghai_detail)
     ImageView ivShanghaiDetail;
 
 

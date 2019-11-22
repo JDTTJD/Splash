@@ -53,7 +53,7 @@ public class AsyncTaskInstance<Result> extends FutureTask<Result> {
                 ThreadUtil.postMainThread(new Runnable() {
                     @Override
                     public void run() {
-                        iTaskCallback.onSuccess(object);
+                        iTaskCallback.onComplete(object);
                     }
                 });
             }
