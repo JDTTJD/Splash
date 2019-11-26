@@ -6,4 +6,5 @@
     <string name="title_activity_kang">KangActivity</string>
     <string name="str_main_beijing">北京</string>
     <string name="str_main_shenzhen">深圳</string>
+    <string name="bottom_show_behavior">com.tuoren.splash.main.hangzhou.design.BottomShowBehavior</string> />
 </resources>

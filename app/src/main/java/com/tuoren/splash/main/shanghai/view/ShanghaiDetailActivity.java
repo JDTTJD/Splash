@@ -11,6 +11,7 @@ import com.tuoren.splash.R;
 import com.tuoren.splash.base.BaseActivity;
 import com.tuoren.splash.base.ViewInject;
 import com.tuoren.splash.main.shanghai.If.IShanghaiDetailContract;
+import com.tuoren.splash.main.shanghai.dto.ShanghaiDetailBean;
 import com.tuoren.splash.main.shanghai.presenter.ShanghaiDetailPresenter;
 
 import org.jetbrains.annotations.NotNull;
@@ -24,6 +25,7 @@ import butterknife.BindView;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
+import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -73,12 +75,12 @@ public class ShanghaiDetailActivity extends BaseActivity implements IShanghaiDet
      * 发送网络请求数据
      */
     private void initGetNetData() {
-        ivShanghaiDetail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPresenter.getNetData();
-            }
-        });
+//        ivShanghaiDetail.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mPresenter.getNetData();
+//            }
+//        });
 
 //        GetXiaoHuaTask task = new GetXiaoHuaTask();
 //        task.execute("desc", "1", "2");
@@ -87,15 +89,15 @@ public class ShanghaiDetailActivity extends BaseActivity implements IShanghaiDet
 //            Response response = (Response) desc;
 //            Log.e("initGetNetData",response.body().toString());
 //        }
-        /*//1、可以隔离
+        //1、可以隔离
         OkHttpClient client = new OkHttpClient();
         //2、构建请求 1) url 2) 参数
-        HttpUrl.Builder builder = HttpUrl.parse("http://v.juhe.cn/joke/content/list.php").newBuilder();
-        builder.addQueryParameter("sort","desc");
-        builder.addQueryParameter("page","1");
-        builder.addQueryParameter("pagesize","2");
-        builder.addQueryParameter("time","" + System.currentTimeMillis()/1000);
-        builder.addQueryParameter("key","4fd5a16cadfb5937c361ecf167d9c756");
+        HttpUrl.Builder builder = HttpUrl.parse("http://www.baidu.com").newBuilder();
+//        builder.addQueryParameter("sort","desc");
+//        builder.addQueryParameter("page","1");
+//        builder.addQueryParameter("pagesize","2");
+//        builder.addQueryParameter("time","" + System.currentTimeMillis()/1000);
+//        builder.addQueryParameter("key","4fd5a16cadfb5937c361ecf167d9c756");
         //3、构建Request
         Request request = new Request.Builder()
                 .url(builder.build())
@@ -114,7 +116,7 @@ public class ShanghaiDetailActivity extends BaseActivity implements IShanghaiDet
             public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
                 Log.e("initGetData", "onResponse + " + response.body().string());
             }
-        });*/
+        });
     }
 
     private void initAnima() {
@@ -138,4 +140,8 @@ public class ShanghaiDetailActivity extends BaseActivity implements IShanghaiDet
         }
     }
 
+    @Override
+    public void showData(ShanghaiDetailBean data) {
+
+    }
 }

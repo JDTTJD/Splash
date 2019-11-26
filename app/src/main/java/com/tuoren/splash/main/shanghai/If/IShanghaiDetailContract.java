@@ -3,6 +3,7 @@ package com.tuoren.splash.main.shanghai.If;
 import com.tuoren.mvp.mvp.ILifeCircle;
 import com.tuoren.mvp.mvp.IMvpView;
 import com.tuoren.mvp.mvp.MvpController;
+import com.tuoren.splash.main.shanghai.dto.ShanghaiDetailBean;
 
 /**
  * Create by JDT on 2019/11/16.
@@ -10,13 +11,19 @@ import com.tuoren.mvp.mvp.MvpController;
 public interface IShanghaiDetailContract {
     interface Iview extends IMvpView {
 
+        void showData(ShanghaiDetailBean data);
     }
 
     interface IPresenter extends ILifeCircle {
-        void getNetData();
+        void getNetData(int pagesize);
     }
 
     IShanghaiDetailContract.Iview emptyView = new IShanghaiDetailContract.Iview() {
+
+        @Override
+        public void showData(ShanghaiDetailBean data) {
+
+        }
 
         @Override
         public MvpController getMvpController() {

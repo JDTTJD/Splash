@@ -4,7 +4,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.tuoren.splash.R;
 import com.tuoren.splash.base.BaseFragment;
 import com.tuoren.splash.base.ViewInject;
-import com.tuoren.splash.main.shenzhen.ShenZhenFragment;
+import com.tuoren.splash.main.hangzhou.view.ZhiHuFragment;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -30,18 +30,18 @@ public class HangZhouFragment extends BaseFragment {
 
             @Override
             public Fragment getItem(int position) {
-                return new ShenZhenFragment();
+                return new ZhiHuFragment();
             }
 
             @Override
             public int getCount() {
-                return 5;
+                return 1;
             }
 
             @Nullable
             @Override
             public CharSequence getPageTitle(int position) {
-                return "深圳";
+                return "知乎";
             }
         });
     }

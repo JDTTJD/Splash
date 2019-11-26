@@ -1,8 +1,5 @@
 package com.tuoren.splash.main.shanghai.presenter;
 
-import android.util.Log;
-
-import com.google.gson.Gson;
 import com.tuoren.http.result.IResult;
 import com.tuoren.splash.base.BasePresenter;
 import com.tuoren.splash.base.JHTask;
@@ -26,7 +23,7 @@ public class ShanghaiDetailPresenter extends BasePresenter<IShanghaiDetailContra
 
 
     @Override
-    public void getNetData() {
+    public void getNetData(int pagesize) {
         //1、数据的结果解析怎么来做
         //2、相同任务的去重工作
             /*submitTask(new LfTask() {
@@ -60,16 +57,17 @@ public class ShanghaiDetailPresenter extends BasePresenter<IShanghaiDetailContra
 
                 @Override
                 public IResult<ShanghaiDetailBean> onBackground() {
-                    return new ShangHaiDetailHttpTask<ShanghaiDetailBean>().getXiaoHuaList("desc", "1", "1");
+                    return new ShangHaiDetailHttpTask<ShanghaiDetailBean>().getXiaoHuaList("desc", "1", pagesize + "");
                 }
 
                 @Override
                 public void onSuccess(IResult<ShanghaiDetailBean> t) {
                     ShanghaiDetailBean data = t.data();
                     // TODO: 2019/11/22 伪代码：临时用，以后进行封装，项目开发不能直接new对象 
-                    Gson gson = new Gson();
-                    String s = gson.toJson(data);
-                    Log.e("ShanghaiDetailPresenter", s);
+//                    Gson gson = new Gson();
+//                    String s = gson.toJson(data);
+//                    Log.e("ShanghaiDetailPresenter", s);
+                        getView().showData(data);
                 }
             });
     }
