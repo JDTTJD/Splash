@@ -1,5 +1,7 @@
 package com.tuoren.splash.main.hangzhou.view;
 
+import android.view.animation.AnimationUtils;
+
 import com.google.android.material.appbar.AppBarLayout;
 import com.tuoren.splash.R;
 import com.tuoren.splash.base.BaseFragment;
@@ -31,6 +33,7 @@ public class ZhiHuFragment extends BaseFragment implements IShanghaiDetailContra
     @Override
     public void afterBindView() {
         zhihuRecyclerview.setLayoutManager(new LinearLayoutManager(mContext));
+        zhihuRecyclerview.setAnimation(AnimationUtils.loadAnimation(mContext, R.anim.zhihu_recyclerview_show));
         mPresenter.getNetData(20);
     }
 

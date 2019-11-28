@@ -1,6 +1,7 @@
 package com.tuoren.splash.main.hangzhou.adapter;
 
 import com.tuoren.splash.main.hangzhou.view.JiKeFragment;
+import com.tuoren.splash.main.hangzhou.view.RefreshFragment;
 import com.tuoren.splash.main.hangzhou.view.ZhiHuFragment;
 
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ public class HangzhouViewPagerAdapter extends FragmentStatePagerAdapter {
         super(fm);
         titleList.add("知乎");
         titleList.add("即刻");
+        titleList.add("下拉刷新");
     }
 
     @Override
@@ -30,6 +32,8 @@ public class HangzhouViewPagerAdapter extends FragmentStatePagerAdapter {
                 return new ZhiHuFragment();
             case 1:
                 return new JiKeFragment();
+            case 2:
+                return new RefreshFragment();
             default:
                 return null;
         }

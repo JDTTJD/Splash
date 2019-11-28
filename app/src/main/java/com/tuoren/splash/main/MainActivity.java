@@ -1,12 +1,16 @@
 package com.tuoren.splash.main;
 
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.tuoren.splash.R;
 import com.tuoren.splash.base.BaseActivity;
@@ -25,11 +29,11 @@ public class MainActivity extends BaseActivity implements IMainActivityContract.
     @BindView(R.id.fac_main_home)
     FloatingActionButton facMainHome;
     @BindView(R.id.rb_main_shanghai)
-    RadioButton rbMainShanghai;
+    LottieAnimationView rbMainShanghai;
     @BindView(R.id.rb_main_hangzhou)
-    RadioButton rbMainHangzhou;
+    LottieAnimationView rbMainHangzhou;
     @BindView(R.id.rg_main_top)
-    RadioGroup rgMainTop;
+    LinearLayout rgMainTop;
     @BindView(R.id.fl_main_bottom)
     FrameLayout flMainBottom;
     @BindView(R.id.rb_main_beijing)
@@ -51,9 +55,7 @@ public class MainActivity extends BaseActivity implements IMainActivityContract.
     }
 
     private void initCheckListener() {
-        //rbMainShanghai.playAnimation();
-
-
+        rbMainShanghai.playAnimation();
         rbMainShanghai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,8 +63,8 @@ public class MainActivity extends BaseActivity implements IMainActivityContract.
                     return;
                 }
                 mPresenter.replaceFragment(MainCostantTool.SHANGHAI);
-               // rbMainShanghai.playAnimation();
-                //rbMainHangzhou.reverseAnimation();
+                rbMainShanghai.playAnimation();
+                rbMainHangzhou.reverseAnimation();
             }
         });
 
@@ -73,8 +75,8 @@ public class MainActivity extends BaseActivity implements IMainActivityContract.
                     return;
                 }
                 mPresenter.replaceFragment(MainCostantTool.HANGZHOU);
-                //rbMainHangzhou.playAnimation();
-                //rbMainShanghai.reverseAnimation();
+                rbMainHangzhou.playAnimation();
+                rbMainShanghai.reverseAnimation();
             }
         });
 
@@ -124,10 +126,10 @@ public class MainActivity extends BaseActivity implements IMainActivityContract.
     private void handleBottomPosition() {
         if (mPresenter.getTopPosition() != MainCostantTool.HANGZHOU) {
             mPresenter.replaceFragment(MainCostantTool.SHANGHAI);
-            rbMainShanghai.setChecked(true);
+            rbMainShanghai.pauseAnimation();
         } else {
             mPresenter.replaceFragment(MainCostantTool.HANGZHOU);
-            rbMainHangzhou.setChecked(true);
+            rbMainHangzhou.pauseAnimation();
         }
     }
 
@@ -143,7 +145,7 @@ public class MainActivity extends BaseActivity implements IMainActivityContract.
         }
     }
 
-    private void changeAnima(RadioGroup gone,RadioGroup show) {
+    private void changeAnima(ViewGroup gone, ViewGroup show) {
         //消失动画
         gone.clearAnimation();//清除自身动画
         Animation animationGone = AnimationUtils.loadAnimation(this, R.anim.main_tab_translate_hide);
@@ -170,5 +172,10 @@ public class MainActivity extends BaseActivity implements IMainActivityContract.
     @Override
     public void hideFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction().hide(fragment).commit();
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        return super.dispatchTouchEvent(ev);
     }
 }
