@@ -1,5 +1,6 @@
 package com.tuoren.splash.main;
 
+import com.tuoren.annotation.MvpEmptyViewFactory;
 import com.tuoren.mvp.mvp.ILifeCircle;
 import com.tuoren.mvp.mvp.IMvpView;
 import com.tuoren.mvp.mvp.MvpController;
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment;
  */
 public interface IMainActivityContract {
 
+    @MvpEmptyViewFactory
     interface Iview extends IMvpView {
 
         void showFragment(Fragment mFragment);

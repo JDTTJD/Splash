@@ -1,5 +1,6 @@
 package com.tuoren.splash.main.shanghai.If;
 
+import com.tuoren.annotation.MvpEmptyViewFactory;
 import com.tuoren.mvp.mvp.ILifeCircle;
 import com.tuoren.mvp.mvp.IMvpView;
 import com.tuoren.mvp.mvp.MvpController;
@@ -9,6 +10,7 @@ import com.tuoren.splash.main.shanghai.dto.ShanghaiDetailBean;
  * Create by JDT on 2019/11/16.
  */
 public interface IShanghaiDetailContract {
+    @MvpEmptyViewFactory
     interface Iview extends IMvpView {
 
         void showData(ShanghaiDetailBean data);

@@ -6,11 +6,33 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
 
+<!--    <application-->
+<!--        android:allowBackup="true"-->
+<!--        android:icon="@mipmap/audi"-->
+<!--        android:label="@string/app_name"-->
+<!--        android:roundIcon="@mipmap/audi"-->
+<!--        android:supportsRtl="true"-->
+<!--        android:theme="@style/AppTheme">-->
+<!--        <activity-->
+<!--            android:name=".splash.SplashActivity"-->
+<!--            android:theme="@style/FullScree">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+<!--        <activity android:name=".main.MainActivity" />-->
+<!--        <activity android:name=".main.KangActivity" />-->
+<!--        <activity android:name=".base.BaseActivity" />-->
+<!--        <activity android:name=".main.shanghai.view.ShanghaiDetailActivity" />-->
+<!--    </application>-->
     <application
+        android:name=".base.Test"
         android:allowBackup="true"
-        android:icon="@mipmap/audi"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/audi"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Splash"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -23,8 +45,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".main.MainActivity" />
-        <activity android:name=".main.KangActivity" />
-        <activity android:name=".base.BaseActivity" />
         <activity android:name=".main.shanghai.view.ShanghaiDetailActivity" />
     </application>
+
 </manifest>

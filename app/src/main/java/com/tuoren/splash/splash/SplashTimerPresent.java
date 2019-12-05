@@ -63,5 +63,6 @@ public class SplashTimerPresent extends BaseMvpPresenter<ISpalshActivityContract
     @Override
     protected ISpalshActivityContract.Iview getEmptyView() {
         return ISpalshActivityContract.emptyView;
+        //return MvpEmptyViewFactory.create();
     }
 }

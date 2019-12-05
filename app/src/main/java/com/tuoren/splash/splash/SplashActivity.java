@@ -6,10 +6,11 @@ import android.net.Uri;
 import android.view.View;
 import android.widget.TextView;
 
-import com.tuoren.splash.base.BaseActivity;
-import com.tuoren.splash.main.MainActivity;
 import com.tuoren.splash.R;
+import com.tuoren.splash.base.BaseActivity;
+import com.tuoren.splash.base.Test;
 import com.tuoren.splash.base.ViewInject;
+import com.tuoren.splash.main.MainActivity;
 
 import java.io.File;
 
@@ -57,6 +58,8 @@ public class SplashActivity extends BaseActivity implements ISpalshActivityContr
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                //MemoryTest.getInstance(SplashActivity.this);
+                Test.save(SplashActivity.this);
                 finish();
             }
         });

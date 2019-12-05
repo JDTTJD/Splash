@@ -1,5 +1,6 @@
 package com.tuoren.splash.splash;
 
+import com.tuoren.annotation.MvpEmptyViewFactory;
 import com.tuoren.mvp.mvp.ILifeCircle;
 import com.tuoren.mvp.mvp.IMvpView;
 import com.tuoren.mvp.mvp.MvpController;
@@ -9,6 +10,7 @@ import com.tuoren.mvp.mvp.MvpController;
  */
 public interface ISpalshActivityContract {
 
+    @MvpEmptyViewFactory
     interface Iview extends IMvpView {
         void setTvTimer(String timer);
     }
@@ -20,6 +22,8 @@ public interface ISpalshActivityContract {
     Iview emptyView = new Iview() {
         @Override
         public void setTvTimer(String timer) {
+            setTvTimer(timer);
+            emptyView.setTvTimer(timer);
 
         }
 
