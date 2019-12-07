@@ -3,12 +3,12 @@ package com.tuoren.splash.splash;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.text.TextUtils;
 import android.view.View;
-import android.widget.TextView;
+import android.view.ViewStub;
 
 import com.tuoren.splash.R;
 import com.tuoren.splash.base.BaseActivity;
-import com.tuoren.splash.base.Test;
 import com.tuoren.splash.base.ViewInject;
 import com.tuoren.splash.main.MainActivity;
 
@@ -25,8 +25,11 @@ public class SplashActivity extends BaseActivity implements ISpalshActivityContr
 
     @BindView(R.id.vv_play)
     FullScreenVideoView vvPlay;
-    @BindView(R.id.tv_splash_timer)
-    TextView tvSplashTimer;
+    @BindView(R.id.splash_vs)
+    ViewStub mViesStub;
+
+//    @BindView(R.id.tv_splash_timer)
+//    TextView tvSplashTimer;
     private ISpalshActivityContract.IPresenter timerPresenter;
 
     @Override
@@ -54,15 +57,15 @@ public class SplashActivity extends BaseActivity implements ISpalshActivityContr
 
     private void initListener() {
 
-        tvSplashTimer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SplashActivity.this, MainActivity.class));
-                //MemoryTest.getInstance(SplashActivity.this);
-                Test.save(SplashActivity.this);
-                finish();
-            }
-        });
+//        tvSplashTimer.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(SplashActivity.this, MainActivity.class));
+//                //MemoryTest.getInstance(SplashActivity.this);
+//                //Test.save(SplashActivity.this);
+//                finish();
+//            }
+//        });
 
         vvPlay.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
@@ -76,7 +79,18 @@ public class SplashActivity extends BaseActivity implements ISpalshActivityContr
 
     @Override
     public void setTvTimer(String s) {
-        tvSplashTimer.setText(s);
+//        tvSplashTimer.setText(s);
+        if (TextUtils.equals(s, "跳过")) {
+            View inflate = mViesStub.inflate();
+            inflate.setVisibility(View.VISIBLE);
+            inflate.findViewById(R.id.tv_splash_timer).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                    finish();
+                }
+            });
+        }
     }
 
     @Override

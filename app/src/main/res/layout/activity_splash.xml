@@ -1,26 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <com.tuoren.splash.splash.FullScreenVideoView
         android:id="@+id/vv_play"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
-    <TextView
-        android:id="@+id/tv_splash_timer"
-        android:textSize="@dimen/dp_18"
-        android:textColor="@color/colorWhite"
-        android:layout_gravity="right"
-        android:gravity="center"
+    <ViewStub
+        android:id="@+id/splash_vs"
         android:layout_width="@dimen/dp_90"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
         android:layout_marginTop="@dimen/dp_25"
         android:layout_marginRight="@dimen/dp_25"
-        android:background="@drawable/shape_splash"
-        android:layout_height="wrap_content"
-        android:text="@string/tiaoguo"
-        />
+        android:gravity="center"
+        android:layout="@layout/include_tiaoguo" />
 
-</FrameLayout>
+    <!--    <include layout="@layout/include_tiaoguo" />-->
+
+</merge>

@@ -46,6 +46,13 @@ public class ShanghaiDetailActivity extends BaseActivity implements IShanghaiDet
     public void afterBindView() {
         initAnima();
         initGetNetData();
+        ivShanghaiDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String s = null;
+                s.toString();
+            }
+        });
 //        initPostNetData();
     }
 

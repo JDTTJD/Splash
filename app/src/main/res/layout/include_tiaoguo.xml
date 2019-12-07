@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tv_splash_timer"
+    android:textSize="@dimen/dp_18"
+    android:textColor="@color/colorWhite"
+    android:layout_gravity="right"
+    android:gravity="center"
+    android:layout_width="@dimen/dp_90"
+    android:layout_marginTop="@dimen/dp_25"
+    android:layout_marginRight="@dimen/dp_25"
+    android:background="@drawable/shape_splash"
+    android:layout_height="wrap_content"
+    android:text="@string/tiaoguo"
+    tools:showIn="@layout/activity_splash" />
