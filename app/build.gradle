@@ -70,4 +70,5 @@ dependencies {
 //    implementation project(path: ':refresh')
     implementation 'com.github.JDTTJD:TangRefreshLayout:V3.0.0'
     implementation ("com.google.code.gson:gson:2.8.5")
+    implementation ('androidx.cardview:cardview:1.0.0')
 }

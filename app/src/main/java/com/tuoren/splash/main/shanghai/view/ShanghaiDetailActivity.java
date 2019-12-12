@@ -6,6 +6,7 @@ import android.os.Build;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.tuoren.splash.R;
 import com.tuoren.splash.base.BaseActivity;
@@ -40,6 +41,8 @@ public class ShanghaiDetailActivity extends BaseActivity implements IShanghaiDet
     public static String mActivityOptionsCompat = "ShanghaiDetailActivity";
     @BindView(R.id.iv_shanghai_detail)
     ImageView ivShanghaiDetail;
+    @BindView(R.id.tv_crash)
+    TextView mTvCrash;
 
 
     @Override
@@ -51,6 +54,18 @@ public class ShanghaiDetailActivity extends BaseActivity implements IShanghaiDet
             public void onClick(View v) {
                 String s = null;
                 s.toString();
+            }
+        });
+        mTvCrash.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        String s = null;
+                        s.toString();
+                    }
+                }).start();
             }
         });
 //        initPostNetData();

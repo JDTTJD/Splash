@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,16 +9,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <ViewStub
-        android:id="@+id/splash_vs"
-        android:layout_width="@dimen/dp_90"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_marginTop="@dimen/dp_25"
-        android:layout_marginRight="@dimen/dp_25"
-        android:gravity="center"
-        android:layout="@layout/include_tiaoguo" />
+<!--    <ViewStub-->
+<!--        android:id="@+id/splash_vs"-->
+<!--        android:layout_width="@dimen/dp_90"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="right"-->
+<!--        android:layout_marginTop="@dimen/dp_25"-->
+<!--        android:layout_marginRight="@dimen/dp_25"-->
+<!--        android:gravity="center"-->
+<!--        android:layout="@layout/include_tiaoguo" />-->
 
-    <!--    <include layout="@layout/include_tiaoguo" />-->
+        <include layout="@layout/include_tiaoguo" />
 
 </merge>
