@@ -1,5 +1,7 @@
 package com.tuoren.splash.main.shanghai.If;
 
+import android.content.Context;
+
 import com.tuoren.annotation.MvpEmptyViewFactory;
 import com.tuoren.mvp.mvp.ILifeCircle;
 import com.tuoren.mvp.mvp.IMvpView;
@@ -15,7 +17,7 @@ public interface IPlayerServiceContract {
     }
 
     interface IPresenter extends ILifeCircle {
-        void bindService();
+        void bindService(Context context);
     }
 
 }

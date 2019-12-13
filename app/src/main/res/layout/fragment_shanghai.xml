@@ -50,7 +50,7 @@
                         android:focusable="true"
                         android:focusableInTouchMode="true"
                         android:marqueeRepeatLimit="marquee_forever"
-                        android:text="目前播放的歌曲是：I know you were trouble"
+                        android:text="目前播放的歌曲是：Maxone on the way pt.3"
                         android:ellipsize="marquee"
                         android:singleLine="true"
                         android:textSize="15dp"

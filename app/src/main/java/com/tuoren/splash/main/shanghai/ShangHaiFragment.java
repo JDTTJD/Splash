@@ -92,7 +92,7 @@ public class ShangHaiFragment extends BaseFragment implements IPlayerServiceCont
                                 public void onAnimationEnd(Animator animation) {
                                     mTvTitle.setVisibility(View.VISIBLE);
                                     // 启动service 去 播放后台音乐
-
+                                    mPresenter.bindService(mContext);
                                 }
                             });
                 }

@@ -1,2 +1,2 @@
-include ':app', ':http', ':task', ':mvp', ':refresh', ':annotation', ':apt'
+include ':app', ':http', ':task', ':mvp', ':refresh', ':annotation', ':apt', ':player'
 rootProject.name='Splash'
