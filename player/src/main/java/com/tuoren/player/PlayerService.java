@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
 
+import com.tuoren.player.player.IPLayerListener;
 import com.tuoren.player.player.IPlayer;
 import com.tuoren.player.player.PlayerFactory;
 import com.tuoren.player.source.IPlayerSource;
@@ -16,11 +17,16 @@ import androidx.annotation.Nullable;
 /**
  * Create by JDT on 2019/12/13.
  */
-public class PlayerService extends Service {
+public class PlayerService extends Service implements IPLayerListener {
 
     private PlayerState mState = PlayerState.IDLE;
     private IPlayer mPlayer;
     private PlayerFactory mPlayerFactory;
+
+    @Override
+    public void playerStateChanged(PlayerState state) {
+        this.mState = state;
+    }
 
     public class PlayerBinder extends Binder {
         public PlayerService getService() {
@@ -68,10 +74,21 @@ public class PlayerService extends Service {
                 }
                 //拿到播放器去播放
                 mPlayer.prepare(mContext, url);
+                mPlayer.setPlayingListener(this);
                 break;
-            case PREPARING:
+            case STARTED:
+                //去暂停
+                if (mPlayer != null) {
+                    mPlayer.paused();
+                }
                 break;
             case PAUSED:
+                //继续播放
+                if (mPlayer != null) {
+                    mPlayer.reStart();
+                }
+                break;
+            case PREPARING:
                 break;
             default:
                 break;

@@ -25,11 +25,7 @@ public class PlayerServicePresenter extends BasePresenter<IPlayerServiceContract
             //IOC 数据回调 和service连接成功后 调用
             PlayerService.PlayerBinder binder  = (PlayerService.PlayerBinder) service;
             playerService = binder.getService();
-            if (playerService != null) {
-                //开启播放音乐
-                playerService.playOrPause(new RawPlayerSource().setPath(ContextHelper.getInstance()
-                        .getApplicationContext().getPackageName(), R.raw.maxone), ContextHelper.getInstance().getApplicationContext());
-            }
+            playOrPaused();
         }
 
         @Override
@@ -49,9 +45,22 @@ public class PlayerServicePresenter extends BasePresenter<IPlayerServiceContract
 
     @Override
     public void bindService(Context context) {
-        Intent intent = new Intent(context, PlayerService.class);
+        if (playerService != null) {
+            playOrPaused();
+        } else {
+            Intent intent = new Intent(context, PlayerService.class);
 //        context.startService(intent);
-        context.bindService(intent, mConnection, Service.BIND_AUTO_CREATE);
+            context.bindService(intent, mConnection, Service.BIND_AUTO_CREATE);
+        }
+    }
+
+    @Override
+    public void playOrPaused() {
+        if (playerService != null) {
+            //开启播放音乐
+            playerService.playOrPause(new RawPlayerSource().setPath(ContextHelper.getInstance()
+                    .getApplicationContext().getPackageName(), R.raw.maxone), ContextHelper.getInstance().getApplicationContext());
+        }
     }
 
     @Override

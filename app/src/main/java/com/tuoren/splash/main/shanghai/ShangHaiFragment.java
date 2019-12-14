@@ -81,6 +81,7 @@ public class ShangHaiFragment extends BaseFragment implements IPlayerServiceCont
                             tvShanghaiWelcome.getTranslationX() + 100, null);
                     AnimationUtil.startTranslationXAnim(mTvTitle, mTvTitle.getTranslationX(),
                             mTvTitle.getTranslationX() + 100, null);
+                    mPresenter.playOrPaused();
 
                 } else {
                     //播放音视频动画

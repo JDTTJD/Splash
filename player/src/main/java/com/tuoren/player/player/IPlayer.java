@@ -11,4 +11,10 @@ public interface IPlayer {
     void release();
 
     void prepare(Context context, String url);
+
+    void setPlayingListener(IPLayerListener listener);
+
+    void paused();
+
+    void reStart();
 }
