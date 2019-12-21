@@ -5,6 +5,7 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.util.Log;
 
+import com.tuoren.player.source.IPlayerSource;
 import com.tuoren.player.state.PlayerState;
 
 import java.io.IOException;
@@ -33,11 +34,11 @@ public class GoogleMediaPlayer implements IPlayer, MediaPlayer.OnPreparedListene
     }
 
     @Override
-    public void prepare(Context context, String url) {
+    public void prepare(Context context, IPlayerSource playerSource) {
         //操作MediaPlayer
         // MediaPlayer 播放系统资源时 只能使用uri的方式
         try {
-            mMediaPlayer.setDataSource(context, Uri.parse(url));
+            mMediaPlayer.setDataSource(context, Uri.parse(playerSource.getUrl()));
             mMediaPlayer.prepare();
         } catch (IOException e) {
             e.printStackTrace();
@@ -98,6 +99,7 @@ public class GoogleMediaPlayer implements IPlayer, MediaPlayer.OnPreparedListene
     @Override
     public boolean onInfo(MediaPlayer mp, int what, int extra) {
         return false;
+
     }
 
     //横竖屏切换 视频大小改变回调

@@ -2,6 +2,7 @@ package com.tuoren.splash.main.shanghai.view;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.opengl.GLSurfaceView;
 import android.os.Build;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +19,9 @@ import com.tuoren.splash.main.shanghai.presenter.ShanghaiDetailPresenter;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
+
+import javax.microedition.khronos.egl.EGLConfig;
+import javax.microedition.khronos.opengles.GL10;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.ActivityOptionsCompat;
@@ -43,10 +47,28 @@ public class ShanghaiDetailActivity extends BaseActivity implements IShanghaiDet
     ImageView ivShanghaiDetail;
     @BindView(R.id.tv_crash)
     TextView mTvCrash;
+    @BindView(R.id.GLSurfaceView)
+    GLSurfaceView glSurfaceView;
 
 
     @Override
     public void afterBindView() {
+        glSurfaceView.setRenderer(new GLSurfaceView.Renderer() {
+            @Override
+            public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+                //都是子线程回调
+            }
+
+            @Override
+            public void onSurfaceChanged(GL10 gl, int width, int height) {
+
+            }
+
+            @Override
+            public void onDrawFrame(GL10 gl) {
+                //循环调用 进行渲染
+            }
+        });
         initAnima();
         initGetNetData();
         ivShanghaiDetail.setOnClickListener(new View.OnClickListener() {

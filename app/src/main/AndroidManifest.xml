@@ -26,7 +26,9 @@
         <activity android:name=".main.MainActivity" />
         <activity android:name=".main.KangActivity" />
         <activity android:name=".base.BaseActivity" />
-        <activity android:name=".main.shanghai.view.ShanghaiDetailActivity" />
+        <activity
+            android:process=":shanghai.detail"
+            android:name=".main.shanghai.view.ShanghaiDetailActivity" />
 
         <!-- 播放器配置信息 -->
         <meta-data
