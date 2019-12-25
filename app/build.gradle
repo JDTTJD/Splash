@@ -67,6 +67,7 @@ dependencies {
     implementation project(path: ':http')
     implementation project(path: ':task')
     implementation project(path: ':player')
+    implementation project(path: ':ipc')
     //换成远程的 我放在git上的依赖
 //    implementation project(path: ':refresh')
     implementation 'com.github.JDTTJD:TangRefreshLayout:V3.0.0'

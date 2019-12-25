@@ -17,6 +17,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.tuoren.ipc.CallBack;
+import com.tuoren.ipc.IpcManager;
+import com.tuoren.ipc.IpcRequest;
+import com.tuoren.ipc.result.IResult;
 import com.tuoren.splash.R;
 import com.tuoren.splash.base.BaseActivity;
 import com.tuoren.splash.base.ViewInject;
@@ -98,7 +102,18 @@ public class ShanghaiDetailActivity extends BaseActivity implements IShanghaiDet
         initGetNetData();
 //        initPostNetData();
 //        initProviderData();
-        initProcessService();
+//        initProcessService();
+        initIpc();
+    }
+
+    private void initIpc() {
+        IpcRequest request = new IpcRequest("shanghai_detail");
+        IpcManager.getInstance(this).executeAsync(request, new CallBack() {
+            @Override
+            public void callBack(IResult result) {
+                String data = result.data();
+            }
+        });
     }
 
     private void initProcessService() {
