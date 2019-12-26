@@ -25,10 +25,14 @@ public class IpcManager {
 
     private static IpcManager mInstance;
     private final Context mContext;
+    //只针对异步请求------------
     private Set<IRequest> mRequests = new TreeSet<IRequest>();
+    private Set<IRequest> mWaitRequests = new TreeSet<IRequest>();
+    //------------------------
     private int mConnectStatus = IConnectStatus.STATUS_UNBIND;
     private ServiceConnection mConnection;
     private IServerInterface mServer;
+    private IBinder.DeathRecipient mDeathRecipient;
 
     interface IConnectStatus {
         int STATUS_UNBIND = 0;
@@ -52,10 +56,10 @@ public class IpcManager {
         if (TextUtils.isEmpty(request.getRequestKey()) || mRequests.contains(request)) {
             return IpcResult.getErrorResult();
         }
-        mRequests.add(request);
         //判断服务是否已经连接成功
-        if (mConnectStatus == IConnectStatus.STATUS_UNBIND) {
+        if (mConnectStatus != IConnectStatus.STATUS_BIND) {
             connectService();
+            mWaitRequests.add(request);
             return IpcResult.getErrorResult();
         }
         return execute(request);
@@ -73,6 +77,7 @@ public class IpcManager {
         //判断服务是否已经连接成功
         if (mConnectStatus == IConnectStatus.STATUS_UNBIND) {
             connectService();
+            mWaitRequests.add(request);
             return;
         }
         execute(request);
@@ -85,20 +90,43 @@ public class IpcManager {
             mConnection = new ServiceConnection() {
                 @Override
                 public void onServiceConnected(ComponentName name, IBinder service) {
+                    mConnectStatus = IConnectStatus.STATUS_BIND;
                     mServer = IServerInterface.Stub.asInterface(service);
                     //Binder 通信的死亡通知 有重启逻辑
-//                    service.linkToDeath();
+                    try {
+                        service.linkToDeath(mDeathRecipient, 0);
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                    //连接成功之后 去把等待的数据请求 发送
+                    for (IRequest request : mWaitRequests) {
+                        execute(request);
+                    }
+                    mRequests.clear();
                 }
 
                 @Override
                 public void onServiceDisconnected(ComponentName name) {
-
+                    mConnectStatus = IConnectStatus.STATUS_UNBIND;
+                }
+            };
+        }
+        if (mDeathRecipient == null) {
+            mDeathRecipient = new IBinder.DeathRecipient() {
+                @Override
+                public void binderDied() {
+                    mConnectStatus = IConnectStatus.STATUS_UNBIND;
+                    //针对异步请求做CallBack处理
+                    for (IRequest request : mRequests) {
+                        request.getCallBack().callBack(IpcResult.getErrorResult());
+                    }
                 }
             };
         }
 
         Intent intent = new Intent(mContext, IpcService.class);
         mContext.bindService(intent, mConnection, Service.BIND_AUTO_CREATE);
+        mConnectStatus = IConnectStatus.STATUS_BINDING;
     }
 
     //实际  跨进程通讯的方法
