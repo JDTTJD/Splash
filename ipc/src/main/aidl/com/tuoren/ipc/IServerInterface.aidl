@@ -1,6 +1,7 @@
 // IServerInterface.aidl
 package com.tuoren.ipc;
 
+import com.tuoren.ipc.IClientInterface;
 // Declare any non-default types here with import statements
 
 interface IServerInterface {
@@ -9,5 +10,7 @@ interface IServerInterface {
 
     //  同步
     String executeSync(String requestKey, String requestParams);
+
+    void registeCallBack(IClientInterface iClientInterface);
 
 }

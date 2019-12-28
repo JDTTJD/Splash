@@ -33,6 +33,7 @@ public class IpcManager {
     private ServiceConnection mConnection;
     private IServerInterface mServer;
     private IBinder.DeathRecipient mDeathRecipient;
+    private IClientInterface.Stub mClientInterface;
 
     interface IConnectStatus {
         int STATUS_UNBIND = 0;
@@ -92,6 +93,12 @@ public class IpcManager {
                 public void onServiceConnected(ComponentName name, IBinder service) {
                     mConnectStatus = IConnectStatus.STATUS_BIND;
                     mServer = IServerInterface.Stub.asInterface(service);
+                    //往服务端注入接口
+                    try {
+                        mServer.registeCallBack(mClientInterface);
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
                     //Binder 通信的死亡通知 有重启逻辑
                     try {
                         service.linkToDeath(mDeathRecipient, 0);
@@ -123,7 +130,14 @@ public class IpcManager {
                 }
             };
         }
+        if (mClientInterface == null) {
+            mClientInterface = new IClientInterface.Stub() {
+                @Override
+                public void callBack(String requestKey, String resultStr) throws RemoteException {
 
+                }
+            };
+        }
         Intent intent = new Intent(mContext, IpcService.class);
         mContext.bindService(intent, mConnection, Service.BIND_AUTO_CREATE);
         mConnectStatus = IConnectStatus.STATUS_BINDING;
