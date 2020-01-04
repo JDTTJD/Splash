@@ -1,17 +1,8 @@
 package com.tuoren.splash.main.shanghai.view;
 
 import android.app.Activity;
-import android.app.Service;
-import android.content.ComponentName;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.os.Build;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.IBinder;
-import android.os.Message;
-import android.os.Messenger;
-import android.os.RemoteException;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,12 +10,11 @@ import android.widget.TextView;
 
 import com.tuoren.ipc.CallBack;
 import com.tuoren.ipc.IpcManager;
-import com.tuoren.ipc.IpcRequest;
+import com.tuoren.ipc.request.IpcRequest;
 import com.tuoren.ipc.result.IResult;
 import com.tuoren.splash.R;
 import com.tuoren.splash.base.BaseActivity;
 import com.tuoren.splash.base.ViewInject;
-import com.tuoren.splash.main.beijing.MainProcessService;
 import com.tuoren.splash.main.shanghai.If.IShanghaiDetailContract;
 import com.tuoren.splash.main.shanghai.dto.ShanghaiDetailBean;
 import com.tuoren.splash.main.shanghai.presenter.ShanghaiDetailPresenter;
@@ -58,41 +48,6 @@ public class ShanghaiDetailActivity extends BaseActivity implements IShanghaiDet
     @BindView(R.id.tv_crash)
     TextView mTvCrash;
 
-    private Messenger messenger;
-
-    private Handler handler = new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            Bundle data = msg.getData();
-            Log.e(mActivityOptionsCompat, "processDec = " + data.getString("process"));
-        }
-    };
-    private Messenger messengerClient = new Messenger(handler);
-
-//    private GetProcessReceiver getProcessReceiver;
-    //    @BindView(R.id.GLSurfaceView)
-//    GLSurfaceView glSurfaceView;
-
-    private ServiceConnection mConnection = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            messenger = new Messenger(service);
-            Message message = new Message();
-            message.what = MainProcessService.SHANGHAI_DETAIL;
-            message.replyTo = messengerClient;
-            try {
-                messenger.send(message);
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-
-        }
-    };
-
 
     @Override
     public void afterBindView() {
@@ -107,40 +62,16 @@ public class ShanghaiDetailActivity extends BaseActivity implements IShanghaiDet
     }
 
     private void initIpc() {
-        IpcRequest request = new IpcRequest("shanghai_detail");
+        IpcRequest request = new IpcRequest("shanghaiDetail");
         IpcManager.getInstance(this).executeAsync(request, new CallBack() {
             @Override
             public void callBack(IResult result) {
                 String data = result.data();
+                Log.e("数据请求", data);
             }
         });
     }
 
-    private void initProcessService() {
-        Intent intent = new Intent(this, MainProcessService.class);
-        bindService(intent, mConnection, Service.BIND_AUTO_CREATE);
-    }
-
-//    private void initProviderData() {
-//        Uri insert = getContentResolver().insert(Uri.parse("content://com.tuoren.splash.process.data"), new ContentValues());
-//        Log.e(mActivityOptionsCompat, "processDec = " + insert.toString());
-//    }
-
-//    private void initReceiver() {
-//        getProcessReceiver = new GetProcessReceiver();
-//        registerReceiver(getProcessReceiver, new IntentFilter("beijing_post_process_data"));
-//    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-//        unregisterReceiver(getProcessReceiver);
-    }
-
-//    private void initProcessData() {
-//        Intent intent = new Intent("shanghai_get_process_data");
-//        sendBroadcast(intent);
-//    }
 
     private void initPostNetData() {
         OkHttpClient client = new OkHttpClient();
@@ -238,11 +169,4 @@ public class ShanghaiDetailActivity extends BaseActivity implements IShanghaiDet
 
     }
 
-//    private class GetProcessReceiver extends BroadcastReceiver {
-//        @Override
-//        public void onReceive(Context context, Intent intent) {
-//            String processDec = intent.getStringExtra("processDec");
-//            Log.e(mActivityOptionsCompat, "processDec = " + processDec);
-//        }
-//    }
 }

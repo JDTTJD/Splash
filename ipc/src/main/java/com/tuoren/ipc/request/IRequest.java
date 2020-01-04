@@ -5,7 +5,7 @@ import com.tuoren.ipc.CallBack;
 /**
  * Create by JDT on 2019-12-25.
  */
-public interface IRequest {
+public interface IRequest extends Comparable<IRequest>{
 
     void setParams(String params);
 
@@ -16,4 +16,6 @@ public interface IRequest {
     void addCallBack(CallBack callBack);
 
     CallBack getCallBack();
+
+    long getAddTime();
 }

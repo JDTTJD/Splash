@@ -14,6 +14,7 @@ import com.tuoren.ipc.result.IResult;
 import com.tuoren.ipc.result.IpcResult;
 import com.tuoren.ipc.server.IpcService;
 
+import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -64,6 +65,12 @@ public class IpcManager {
             return IpcResult.getErrorResult();
         }
         return execute(request);
+    }
+
+    // TODO: 2019-12-30 提供给客户端 建立连接的一个方法
+    public void initConnet() {
+        //大家可以自由完善
+
     }
 
     //异步跨进程通信
@@ -127,6 +134,7 @@ public class IpcManager {
                     for (IRequest request : mRequests) {
                         request.getCallBack().callBack(IpcResult.getErrorResult());
                     }
+                    mRequests.clear();
                 }
             };
         }
@@ -134,7 +142,15 @@ public class IpcManager {
             mClientInterface = new IClientInterface.Stub() {
                 @Override
                 public void callBack(String requestKey, String resultStr) throws RemoteException {
-
+                    Iterator<IRequest> iterator = mRequests.iterator();
+                    while (iterator.hasNext()) {
+                        IRequest next = iterator.next();
+                        if (TextUtils.equals(next.getRequestKey(), requestKey)) {
+                            next.getCallBack().callBack(IpcResult.getSuccessResult(resultStr));
+                            mRequests.remove(next);
+                            return;
+                        }
+                    }
                 }
             };
         }
@@ -147,7 +163,6 @@ public class IpcManager {
     private IResult execute(IRequest request) {
         if (request.getCallBack() != null) {
             try {
-                // CODEREVIEW: 代码审核: 这里面待解决 AIDL的回调问题
                 mServer.executeAsync(request.getRequestKey(), request.getParams());
             } catch (RemoteException e) {
                 request.getCallBack().callBack(IpcResult.getErrorResult());

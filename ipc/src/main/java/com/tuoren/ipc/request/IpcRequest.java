@@ -1,6 +1,6 @@
-package com.tuoren.ipc;
+package com.tuoren.ipc.request;
 
-import com.tuoren.ipc.request.IRequest;
+import com.tuoren.ipc.CallBack;
 
 import androidx.annotation.NonNull;
 
@@ -9,9 +9,14 @@ import androidx.annotation.NonNull;
  */
 public class IpcRequest implements IRequest {
 
-    private final String mRequestKey;
+    private long mTime;
+    private String mRequestKey;
     private String mParams;
     private CallBack mCallBack;
+
+    public IpcRequest() {
+        mTime = System.currentTimeMillis();
+    }
 
     public IpcRequest(@NonNull String requestKey) {
         this.mRequestKey = requestKey;
@@ -40,5 +45,15 @@ public class IpcRequest implements IRequest {
     @Override
     public CallBack getCallBack() {
         return mCallBack;
+    }
+
+    @Override
+    public long getAddTime() {
+        return mTime;
+    }
+
+    @Override
+    public int compareTo(IRequest o) {
+        return (int) (this.getAddTime() - o.getAddTime());
     }
 }
