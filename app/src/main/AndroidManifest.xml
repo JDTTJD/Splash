@@ -5,9 +5,12 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--9.0适配-->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICsATION" />
 
     <application
+        android:networkSecurityConfig="@xml/network_security_config"
         android:name=".base.SplashApplication"
         android:allowBackup="true"
         android:icon="@mipmap/audi"

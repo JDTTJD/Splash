@@ -17,7 +17,7 @@ import com.tuoren.player.source.IPlayerSource;
 import com.tuoren.player.state.PlayerState;
 
 /**
- * Create by JDT on 2019-12-19.
+ * Create by JDT on 2020-02-29.
  */
 public class ExoMediaPlayer implements IPlayer, Player.EventListener {
 
