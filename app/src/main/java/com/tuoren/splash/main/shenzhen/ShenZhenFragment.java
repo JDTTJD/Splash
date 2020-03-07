@@ -32,7 +32,7 @@ public class ShenZhenFragment extends BaseFragment {
                 gl.glViewport(0,0, width, height);
             }
 
-            //每一帧绘制时都会被系统调用 在android中 默认最高绘制效率为1秒60帧.
+            //每一帧绘制时都会被系统调用 在android中 默认最高绘制效率为1秒60帧
             @Override
             public void onDrawFrame(GL10 gl) {
                 gl.glClear(gl.GL_COLOR_BUFFER_BIT);
