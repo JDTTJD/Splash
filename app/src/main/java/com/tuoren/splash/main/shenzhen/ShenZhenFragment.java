@@ -24,17 +24,20 @@ public class ShenZhenFragment extends BaseFragment {
         glSurfaceView.setRenderer(new GLSurfaceView.Renderer() {
             @Override
             public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+                //为缓冲区设置清除颜色的值 相当于初始化
                 gl.glClearColor(0.0f,0.0f,1.0f,1.0f);
             }
 
             @Override
             public void onSurfaceChanged(GL10 gl, int width, int height) {
+                //设置 视图 大小
                 gl.glViewport(0,0, width, height);
             }
 
             //每一帧绘制时都会被系统调用 在android中 默认最高绘制效率为1秒60帧
             @Override
             public void onDrawFrame(GL10 gl) {
+                // 设置色彩
                 gl.glClear(gl.GL_COLOR_BUFFER_BIT);
             }
         });
