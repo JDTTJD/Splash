@@ -24,7 +24,7 @@ public class OpenGlActivity extends BaseActivity {
         glSurfaceView.setRenderer(new GLSurfaceView.Renderer() {
             @Override
             public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-                //为缓冲区设置清除颜色的值 相当于初始化
+                //为缓冲区设置清除颜色的值 相当于初始化。
 //                gl.glClearColor(0.0f,0.0f,1.0f,1.0f);
                 OpenGlManger.onSurfaceCreated();
             }
