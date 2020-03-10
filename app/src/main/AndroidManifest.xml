@@ -4,20 +4,21 @@
     package="com.tuoren.splash">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!--9.0适配-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 9.0适配 -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICsATION" />
 
     <application
-        android:networkSecurityConfig="@xml/network_security_config"
         android:name=".base.SplashApplication"
         android:allowBackup="true"
         android:icon="@mipmap/audi"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/audi"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".main.shenzhen.view.WebViewActivity"></activity>
+        <activity android:name=".main.shenzhen.view.OpenGlActivity" />
         <activity
             android:name=".splash.SplashActivity"
             android:theme="@style/FullScree">
@@ -29,42 +30,20 @@
         </activity>
 
         <provider
-            android:authorities="com.tuoren.splash.process.data"
-            android:name=".main.beijing.MainProcessDataProvider" />
+            android:name=".main.beijing.MainProcessDataProvider"
+            android:authorities="com.tuoren.splash.process.data" />
 
         <service android:name=".main.beijing.MainProcessService" />
-        
+
         <activity android:name=".main.MainActivity" />
         <activity android:name=".main.KangActivity" />
         <activity android:name=".base.BaseActivity" />
         <activity
-            android:process=":shanghai.detail"
-            android:name=".main.shanghai.view.ShanghaiDetailActivity" />
-
-        <!-- 播放器配置信息 -->
+            android:name=".main.shanghai.view.ShanghaiDetailActivity"
+            android:process=":shanghai.detail" /> <!-- 播放器配置信息 -->
         <meta-data
             android:name="playertype"
             android:value="1" />
     </application>
-<!--    <application-->
-<!--        android:name=".base.Test"-->
-<!--        android:allowBackup="true"-->
-<!--        android:icon="@mipmap/ic_launcher"-->
-<!--        android:label="Splash"-->
-<!--        android:roundIcon="@mipmap/ic_launcher_round"-->
-<!--        android:supportsRtl="true"-->
-<!--        android:theme="@style/AppTheme">-->
-<!--        <activity-->
-<!--            android:name=".splash.SplashActivity"-->
-<!--            android:theme="@style/FullScree">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
-<!--        <activity android:name=".main.MainActivity" />-->
-<!--        <activity android:name=".main.shanghai.view.ShanghaiDetailActivity" />-->
-<!--    </application>-->
 
 </manifest>

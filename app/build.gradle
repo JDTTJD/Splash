@@ -10,6 +10,13 @@ android {
         versionCode Integer.valueOf(version_code)
         versionName version_name
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        //引入so库，切记
+        ndk {
+            abiFilters "armeabi-v7a"
+            abiFilters "x86"
+        }
+
         //指定jdk版本
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_8
@@ -19,6 +26,12 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 includeCompileClasspath = true
+            }
+        }
+        //引入jar包，切记
+        sourceSets {
+            main {
+                jniLibs.srcDirs = ['libs']
             }
         }
 
@@ -40,7 +53,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'com.google.android.material:material:1.0.0'
@@ -70,8 +83,9 @@ dependencies {
     implementation project(path: ':player')
     implementation project(path: ':ipc')
     //换成远程的 我放在git上的依赖
-//    implementation project(path: ':refresh')
+    //    implementation project(path: ':refresh')
     implementation 'com.github.JDTTJD:TangRefreshLayout:V3.0.0'
-    implementation ("com.google.code.gson:gson:2.8.5")
-    implementation ('androidx.cardview:cardview:1.0.0')
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation files('libs/opengl.jar')
 }
