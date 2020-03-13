@@ -44,7 +44,7 @@ public class WeiXinActivity extends BaseActivity {
     }
 
     public class WxTextView {
-        //c++ 调用 Java 方法，都是通过反射的形式
+        //c++ 调用 Java 方法，都是通过反射的形式。
         public void textView(String text) {
             TextView textView = new TextView(WeiXinActivity.this);
             textView.setText(text);
