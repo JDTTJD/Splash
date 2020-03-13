@@ -49,6 +49,8 @@ android {
     defaultConfig {
         //解决多包依赖显示使用注解
         javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
+        // 这里添加
+        multiDexEnabled true
     }
 }
 
@@ -88,4 +90,8 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation files('libs/opengl.jar')
+    //V8引擎
+    implementation 'com.eclipsesource.j2v8:j2v8:5.0.103@aar'
+    // 引入multidex库
+    implementation 'com.android.support:multidex:1.0.3'
 }

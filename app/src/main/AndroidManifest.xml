@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/audi"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".main.shenzhen.view.WebViewActivity"></activity>
+        <activity android:name=".main.shenzhen.view.WeiXinActivity"></activity>
+        <activity android:name=".main.shenzhen.view.WebViewActivity" />
         <activity android:name=".main.shenzhen.view.OpenGlActivity" />
         <activity
             android:name=".splash.SplashActivity"

@@ -9,6 +9,7 @@ import com.tuoren.splash.base.BaseFragment;
 import com.tuoren.splash.base.ViewInject;
 import com.tuoren.splash.main.shenzhen.view.OpenGlActivity;
 import com.tuoren.splash.main.shenzhen.view.WebViewActivity;
+import com.tuoren.splash.main.shenzhen.view.WeiXinActivity;
 
 import butterknife.BindView;
 
@@ -38,6 +39,12 @@ public class ShenZhenFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getContext(), WebViewActivity.class));
+            }
+        });
+        weixin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), WeiXinActivity.class));
             }
         });
     }

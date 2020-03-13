@@ -7,6 +7,10 @@ buildscript {
 //            url 'https://maven.aliyun.com/repository/jcenter'
 //        }
         jcenter()
+
+//        maven{
+//            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+//        }
         maven {
             url 'https://maven.google.com/'
             name 'Google'
@@ -29,6 +33,10 @@ allprojects {
 //            url 'https://maven.aliyun.com/repository/jcenter'
 //        }
         jcenter()
+        //使用j2v8时候用下面这个aliyun的才成功的
+//        maven{
+//            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+//        }
         maven {
             url 'https://maven.google.com/'
             name 'Google'
