@@ -68,7 +68,7 @@ public class CrashProtectManager {
                 if (!cacheDir.exists()) {
                     cacheFile.createNewFile();
                 }
-                //把字符串写入文件（Java基础）。
+                //把字符串写入文件（Java基础）
                 FileOutputStream outputStream = new FileOutputStream(cacheFile);
                 outputStream.write(result.getBytes());
                 outputStream.close();
