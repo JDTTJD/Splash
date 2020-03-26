@@ -54,7 +54,7 @@ public class CrashProtectManager {
         e.printStackTrace(printWriter);
         printWriter.close();
         String result = writer.toString();
-        //定义文件名
+        //定义文件名 JDT
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-DD-HH-mm-ss");
         String time = dateFormat.format(new Date());
         String fileName = "crash-" + time + ".txt";
