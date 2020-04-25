@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.tuoren.splash.R;
 import com.tuoren.splash.base.BaseFragment;
 import com.tuoren.splash.base.ViewInject;
+import com.tuoren.splash.main.beijing.view.SafeActivity;
 import com.tuoren.splash.main.shanghai.view.ShanghaiDetailActivity;
 
 import butterknife.BindView;
@@ -24,7 +25,11 @@ import butterknife.BindView;
 public class BeiJingFragment extends BaseFragment {
     @BindView(R.id.bt_play)
     Button tvClick;
-//    private ProcessDataReceiver processDataReceiver;
+    @BindView(R.id.perimision)
+    Button btClick;
+    @BindView(R.id.android_safe)
+    Button btSafe;
+    //    private ProcessDataReceiver processDataReceiver;
     private NetworkChangeReceiver networkChangeReceiver;
 
     @Override
@@ -36,6 +41,14 @@ public class BeiJingFragment extends BaseFragment {
                 //去上海
                 ProcessDataTest.getInstance().setProcessDec("你好，我来自北京1");
                 ShanghaiDetailActivity.start_5_0(getActivity(), tvClick);
+            }
+        });
+
+        //safe点击事件
+        btSafe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().startActivity(new Intent(getContext(), SafeActivity.class));
             }
         });
         //注册广播，来接收

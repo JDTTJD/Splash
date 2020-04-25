@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:background="#2598F403"
+        android:gravity="center"
+        android:id="@+id/tv_md5"
+        android:text="MD5 加密 todayInformation"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:background="#2598F403"
+        android:gravity="center"
+        android:id="@+id/tv_sp"
+        android:text="创建Sp存储"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:background="#2598F403"
+        android:gravity="center"
+        android:id="@+id/tv_aes"
+        android:text="AES对称加密"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:background="#2598F403"
+        android:gravity="center"
+        android:id="@+id/tv_xposed"
+        android:text="xposed"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+</LinearLayout>
