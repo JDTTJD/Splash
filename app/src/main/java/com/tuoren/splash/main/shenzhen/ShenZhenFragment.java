@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 
+import com.tuoren.jetpack.navigation.NavigationActivity;
 import com.tuoren.splash.R;
 import com.tuoren.splash.base.BaseFragment;
 import com.tuoren.splash.base.ViewInject;
@@ -25,6 +26,8 @@ public class ShenZhenFragment extends BaseFragment {
     Button webView;
     @BindView(R.id.bt_wx)
     Button weixin;
+    @BindView(R.id.jetpack)
+    Button jetpack;
 
     @Override
     public void afterBindView() {
@@ -45,6 +48,13 @@ public class ShenZhenFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getContext(), WeiXinActivity.class));
+            }
+        });
+        jetpack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                startActivity(new Intent(getContext(), LifeCircleActivity.class));
+                startActivity(new Intent(getContext(), NavigationActivity.class));
             }
         });
     }

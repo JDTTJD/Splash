@@ -4,8 +4,11 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.tuoren.splash.R;
@@ -26,7 +29,7 @@ import butterknife.BindView;
  */
 
 @ViewInject(mainlayoutid = R.layout.fragment_shanghai)
-public class ShangHaiFragment extends BaseFragment implements IPlayerServiceContract.Iview{
+public class ShangHaiFragment extends BaseFragment implements IPlayerServiceContract.Iview {
 
     IPlayerServiceContract.IPresenter mPresenter = new PlayerServicePresenter(this);
     @BindView(R.id.tv_shanghai_welcome)
@@ -39,12 +42,25 @@ public class ShangHaiFragment extends BaseFragment implements IPlayerServiceCont
     RecyclerView shanghaiRecyclerview;
     @BindView(R.id.tv_marquee_title)
     TextView mTvTitle;
+    @BindView(R.id.shanghai_iv_bg)
+    ImageView mIvBg;
     private boolean mIsPlaying;
 
     @Override
     public void afterBindView() {
+        initView();
         initListener();
         initRecyclerview();
+    }
+
+    private void initView() {
+        RequestOptions cropOptions = new RequestOptions().centerCrop();
+        Glide.with(this)
+                .load("http://t8.baidu.com/it/u=1484500186,1503043093&fm=79&app=86&f=JPEG?w=1280&h=853")
+                .fitCenter()
+                .placeholder(R.mipmap.shanghai)
+                .apply(cropOptions)
+                .into(mIvBg);
     }
 
     private void initRecyclerview() {

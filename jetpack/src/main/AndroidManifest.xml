@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tuoren.jetpack">
+
+    <application>
+        <activity android:name=".LifeCircleActivity"></activity>
+        <activity android:name=".navigation.NavigationActivity"></activity>
+    </application>
+
+</manifest>

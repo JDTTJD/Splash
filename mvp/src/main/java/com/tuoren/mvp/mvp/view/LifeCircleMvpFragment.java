@@ -48,7 +48,6 @@ public class LifeCircleMvpFragment extends Fragment implements IMvpView {
 
         if (bundle == null) {
             bundle = new Bundle();
-
         }
         MvpController mvpController = this.getMvpController();
         if (mvpController != null) {

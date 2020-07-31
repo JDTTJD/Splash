@@ -1,6 +1,9 @@
 apply plugin: 'com.android.application'
 
 android {
+    dataBinding{
+        enabled = true
+    }
     compileSdkVersion Integer.valueOf(compile_sdk_version)
     buildToolsVersion build_tools_version
     defaultConfig {
@@ -34,7 +37,6 @@ android {
                 jniLibs.srcDirs = ['libs']
             }
         }
-
     }
     buildTypes {
         release {
@@ -84,6 +86,8 @@ dependencies {
     implementation project(path: ':task')
     implementation project(path: ':player')
     implementation project(path: ':ipc')
+    implementation project(path: ':plugin')
+    implementation project(path: ':jetpack')
     //换成远程的 我放在git上的依赖
     //    implementation project(path: ':refresh')
     implementation 'com.github.JDTTJD:TangRefreshLayout:V3.0.0'

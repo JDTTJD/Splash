@@ -1,2 +1,4 @@
 include ':app', ':http', ':task', ':mvp', ':refresh', ':annotation', ':apt', ':player', ':ipc'
 rootProject.name='Splash'
+include ':plugin'
+include ':jetpack'
