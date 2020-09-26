@@ -47,7 +47,7 @@ public class PlayerService extends Service implements IPLayerListener {
         return super.onStartCommand(intent, flags, startId);
     }
 
-    //onCreate 不管 start 还是 bind 也不管调用几次 只会启动一次 常用来做去全局舒适化操作
+    //onCreate 不管 start 还是 bind 也不管调用几次 只会启动一次 常用来做去全局初始化操作
     @Override
     public void onCreate() {
         super.onCreate();
