@@ -50,7 +50,7 @@ public class ShanghaiAdapter extends RecyclerView.Adapter {
         } else if (viewType == ShanghaiBean.IShanghaiItemType.HORIZANTAL){
             View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_shanghai_fragment_rv, null);
             ShanghaiViewHolderRv viewHolder = new ShanghaiViewHolderRv(inflate);
-                return viewHolder;
+            return viewHolder;
         }
         return null;
     }

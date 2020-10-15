@@ -56,7 +56,7 @@ public class ShangHaiFragment extends BaseFragment implements IPlayerServiceCont
     private void initView() {
         RequestOptions cropOptions = new RequestOptions().centerCrop();
         Glide.with(this)
-                .load("http://t8.baidu.com/it/u=1484500186,1503043093&fm=79&app=86&f=JPEG?w=1280&h=853")
+                .load("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1602760026111&di=a6a851b97be90627b6be6eb100845e02&imgtype=0&src=http%3A%2F%2Fimages4.c-ctrip.com%2Ftarget%2Ftuangou%2F228%2F918%2F142%2F6e43d43424644890b3feb911efc2f8d3_720_480_s.jpg")
                 .fitCenter()
                 .placeholder(R.mipmap.shanghai)
                 .apply(cropOptions)
