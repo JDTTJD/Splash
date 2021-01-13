@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="1.7">
+      <module name="Splash.app" target="1.8" />
+      <module name="Splash.http" target="1.8" />
+      <module name="Splash.ipc" target="1.8" />
+      <module name="Splash.jetpack" target="1.8" />
+      <module name="Splash.mvp" target="1.8" />
+      <module name="Splash.player" target="1.8" />
+      <module name="Splash.plugin" target="1.8" />
+      <module name="Splash.refresh" target="1.8" />
+      <module name="Splash.task" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

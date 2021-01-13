@@ -68,7 +68,7 @@ public class IpcManager {
     }
 
     // TODO: 2019-12-30 提供给客户端 建立连接的一个方法
-    public void initConnet() {
+    public void initConnect() {
         //大家可以自由完善
 
     }
